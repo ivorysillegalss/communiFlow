@@ -41,11 +41,19 @@
                 <version>5.1.35</version>
             </dependency>
 
+<!--            hutool-->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>5.7.15</version>
             </dependency>
+
+<!--                lombok-->
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>1.18.28</version>
+                </dependency>
 
             <!--guava工具包-->
             <dependency>
