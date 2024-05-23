@@ -2,11 +2,10 @@ package org.chenzc.communi.entity;
 
 import lombok.Builder;
 
-/**
+/** 责任链模式响应类 表示责任链运行的结果
  * @author chenz
  * @date 2024/05/21
- * 责任链模式响应类 表示责任链运行的结果
- */
+ * */
 @Builder
 public class TaskContextResponse<T> {
     /**

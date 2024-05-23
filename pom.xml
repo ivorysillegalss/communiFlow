@@ -16,6 +16,7 @@
         <module>communi-service</module>
         <module>communi-common</module>
         <module>communi-support</module>
+        <module>communi-application</module>
     </modules>
 
     <properties>
