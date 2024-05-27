@@ -9,6 +9,8 @@ import org.chenzc.communi.service.SendService;
 import org.chenzc.communi.task.SendContextData;
 import org.chenzc.communi.template.TaskController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -17,7 +19,7 @@ import java.util.Collections;
 public class SendServiceImpl implements SendService {
 
     @Autowired
-//    @Qualifier("")
+    @Qualifier("ServiceTaskController")
     private TaskController taskController;
 
     @Override

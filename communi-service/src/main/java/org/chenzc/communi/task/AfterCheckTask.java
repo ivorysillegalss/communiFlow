@@ -5,6 +5,7 @@ import cn.hutool.core.util.ReUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextResponse;
+import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.enums.IdType;
 import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.executor.TaskNodeModel;

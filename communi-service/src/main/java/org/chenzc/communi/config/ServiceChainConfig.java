@@ -1,7 +1,6 @@
 package org.chenzc.communi.config;
 
 import org.chenzc.communi.enums.BusinessEnums;
-import org.chenzc.communi.mq.SendMqService;
 import org.chenzc.communi.task.AfterCheckTask;
 import org.chenzc.communi.task.AssembleInfoTask;
 import org.chenzc.communi.task.PreCheckTask;
@@ -17,11 +16,13 @@ import java.util.*;
 /**
  * @author chenz
  * @date 2024/05/21
- * 责任链配置类 所有的业务
+ * 责任链配置类 接入层所有的业务配置
  * 维护多个类
  */
 @Configuration
-public class ChainConfig {
+public class ServiceChainConfig {
+
+//    下方四个是具体的接入层业务
     @Resource
     private PreCheckTask preCheckTask;
     @Resource
@@ -38,7 +39,7 @@ public class ChainConfig {
                 .build();
     }
 
-    @Bean("TaskController")
+    @Bean("ServiceTaskController")
     public TaskController taskController() {
         TaskController taskController = TaskController.builder().build();
         Map<String, TaskTemplate> taskTemplates = new HashMap<>();

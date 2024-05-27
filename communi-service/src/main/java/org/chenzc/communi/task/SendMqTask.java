@@ -5,6 +5,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextResponse;
+import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.executor.TaskNodeModel;
 import org.chenzc.communi.mq.SendMqService;
@@ -41,7 +42,7 @@ public class SendMqTask implements TaskNodeModel<SendContextData> {
         String jsonTaskInfos = JSON.toJSONString(taskInfos, SerializerFeature.WriteClassName);
 //        下发信息 具体下发逻辑封装在support对应包中
         try {
-            sendMqService.send(topicId, tagId, jsonTaskInfos);
+            sendMqService.send(topicId, jsonTaskInfos);
         } catch (Exception e) {
             taskContext.setException(Boolean.TRUE).setResponse(TaskContextResponse.<SendContextData>builder()
                     .code(RespEnums.SEND_MQ_ERROR.getCode()).build());

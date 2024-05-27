@@ -2,6 +2,7 @@ package org.chenzc.communi.task;
 
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.TaskContext;
+import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.entity.messageTemplate.MessageParam;
 import org.chenzc.communi.message.MessageTemplate;
 import org.chenzc.communi.executor.TaskNodeModel;

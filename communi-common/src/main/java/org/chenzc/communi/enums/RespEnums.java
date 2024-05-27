@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum RespEnums {
+public enum RespEnums implements PowerfulEnums{
 
 
     SUCCESS("1","成功"),

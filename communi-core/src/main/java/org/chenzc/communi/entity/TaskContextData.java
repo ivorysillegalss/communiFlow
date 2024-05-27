@@ -2,7 +2,7 @@ package org.chenzc.communi.entity;
 
 
 import lombok.*;
-import org.chenzc.communi.task.TaskInfo;
+import org.chenzc.communi.content.ContentModel;
 
 import java.util.List;
 
@@ -16,6 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-public class TaskContextData {
+public class TaskContextData extends ContentModel {
     private List<TaskInfo> taskInfos;
 }

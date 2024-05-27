@@ -1,4 +1,4 @@
-package org.chenzc.communi.task;
+package org.chenzc.communi.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +18,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskInfo implements Serializable {
+public class TaskInfo extends TaskContextData implements Serializable {
 
     /**
      * 业务消息发送Id, 用于链路追踪, 若不存在, 则使用 messageId
