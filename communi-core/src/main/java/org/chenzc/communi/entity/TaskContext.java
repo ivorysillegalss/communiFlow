@@ -2,6 +2,7 @@ package org.chenzc.communi.entity;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * @author chenz
@@ -11,6 +12,7 @@ import lombok.Data;
  */
 @Builder
 @Data
+@Accessors(chain = true)
 public class TaskContext<T extends TaskContextData> {
     /**
      * 表示当前所执行的业务类型
@@ -20,7 +22,7 @@ public class TaskContext<T extends TaskContextData> {
     /**
      * 表示当前所执行的业务的号码
      */
-    private Integer businessCode;
+    private String businessCode;
 
     /**
      * 表示对应的上下文数据

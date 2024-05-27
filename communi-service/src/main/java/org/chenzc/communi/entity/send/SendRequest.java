@@ -3,6 +3,7 @@ package org.chenzc.communi.entity.send;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.chenzc.communi.entity.messageTemplate.MessageParam;
 
@@ -13,6 +14,7 @@ import org.chenzc.communi.entity.messageTemplate.MessageParam;
  */
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
 @Builder

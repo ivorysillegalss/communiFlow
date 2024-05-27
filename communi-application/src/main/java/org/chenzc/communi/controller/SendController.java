@@ -1,4 +1,4 @@
-package org.chenzc.communi;
+package org.chenzc.communi.controller;
 
 import org.chenzc.communi.entity.send.SendRequest;
 import org.chenzc.communi.entity.send.SendResponse;

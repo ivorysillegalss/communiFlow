@@ -1,4 +1,4 @@
-package org.chenzc.communi.enums;
+package org.chenzc.communi;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
