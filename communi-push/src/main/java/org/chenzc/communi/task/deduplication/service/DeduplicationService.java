@@ -1,6 +1,6 @@
 package org.chenzc.communi.task.deduplication.service;
 
-import org.chenzc.communi.task.deduplication.entity.DeduplicationEntity;
+import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
 
 /**
  * 执行的去重服务
@@ -8,5 +8,5 @@ import org.chenzc.communi.task.deduplication.entity.DeduplicationEntity;
  * @date 2024/05/28
  */
 public interface DeduplicationService {
-    void deduplication(DeduplicationEntity entity);
+    void deduplication(DeduplicationConfigEntity entity);
 }

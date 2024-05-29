@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.chenzc.communi.content.ContentModel;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -82,7 +83,7 @@ public class TaskInfo extends TaskContextData implements Serializable {
      */
 //    未补充第三方接入模型内容 TODO
 
-//    private ContentModel contentModel;
+    private ContentModel contentModel;
 
     /**
      * 发送账号（邮件下可有多个发送账号、短信可有多个发送账号..）

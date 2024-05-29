@@ -11,12 +11,11 @@ import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.executor.TaskNodeModel;
 import org.chenzc.communi.service.ConfigService;
 import org.chenzc.communi.task.deduplication.DeduplicationFactory;
-import org.chenzc.communi.task.deduplication.entity.DeduplicationEntity;
+import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
 import org.chenzc.communi.utils.EnumsUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.xml.ws.Response;
 import java.util.List;
 
 @Service
@@ -38,7 +37,7 @@ public class DeduplicationTask implements TaskNodeModel<TaskInfo> {
 //        先从配置中获取到所有的去重配置
         List<String> deduplicationList = EnumsUtil.getCodeList(DeduplicationType.class);
         for (String deduplicationType : deduplicationList) {
-            DeduplicationEntity entity = factory.newBuilderInstance(deduplicationType).build(deduplicationConfig, taskInfo);
+            DeduplicationConfigEntity entity = factory.newBuilderInstance(deduplicationType).build(deduplicationConfig, taskInfo);
 
 //            异常处理
 //            如果在构建去重参数的时候遇到错误 或者经过去重后接收者为空 则报错返回

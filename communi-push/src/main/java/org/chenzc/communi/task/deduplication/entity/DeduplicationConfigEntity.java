@@ -21,7 +21,7 @@ import org.chenzc.communi.enums.TrackEventType;
 @NoArgsConstructor
 @Data
 @Accessors(chain = true)
-public class DeduplicationEntity {
+public class DeduplicationConfigEntity {
 
     /**
      * 任务信息
