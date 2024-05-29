@@ -8,8 +8,9 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * @author kyw7
+ * @author chenzc
  * 枚举工具类（获取枚举的描述、获取枚举的code、获取枚举的code列表）
+ * @date 2024/05/29
  */
 public class EnumsUtil {
 

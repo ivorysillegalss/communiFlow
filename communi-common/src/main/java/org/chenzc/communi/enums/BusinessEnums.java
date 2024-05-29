@@ -3,6 +3,11 @@ package org.chenzc.communi.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * 业务信息枚举类
+ * @author chenz
+ * @date 2024/05/29
+ */
 @Getter
 @AllArgsConstructor
 public enum BusinessEnums implements PowerfulEnums{

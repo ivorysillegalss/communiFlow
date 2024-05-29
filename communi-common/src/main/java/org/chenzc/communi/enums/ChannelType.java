@@ -14,7 +14,8 @@ import java.util.Objects;
 /**
  * 发送渠道类型枚举
  *
- * @author 3y
+ * @author chenz
+ * @date 2024/05/29
  */
 @Getter
 @ToString

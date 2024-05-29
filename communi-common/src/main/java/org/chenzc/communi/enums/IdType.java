@@ -8,7 +8,8 @@ import lombok.ToString;
 /**
  * 发送ID类型枚举
  *
- * @author 3y
+ * @author chenzc
+ * @date 2024/05/29
  */
 @Getter
 @ToString
