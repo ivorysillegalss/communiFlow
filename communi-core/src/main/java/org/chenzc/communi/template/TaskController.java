@@ -4,8 +4,6 @@ import lombok.Builder;
 import lombok.Setter;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextData;
-import org.chenzc.communi.entity.TaskContextResponse;
-import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.executor.TaskNodeModel;
 
 import java.util.List;

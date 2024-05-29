@@ -17,6 +17,7 @@
         <module>communi-common</module>
         <module>communi-support</module>
         <module>communi-application</module>
+        <module>communi-push</module>
     </modules>
 
     <properties>
