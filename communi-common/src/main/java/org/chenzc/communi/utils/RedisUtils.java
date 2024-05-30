@@ -5,9 +5,12 @@ import com.google.common.base.Throwables;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.constant.CommonConstant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.core.script.RedisScript;
+import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -183,5 +186,16 @@ public class RedisUtils {
         return false;
     }
 
-
+    /**
+     * 初始化lua脚本的配置
+     * @param resultType
+     * @param path
+     * @return {@link RedisScript }
+     */
+    public <T> DefaultRedisScript<T> initialRedisScript(Class<T> resultType, String path){
+        DefaultRedisScript<T> script = new DefaultRedisScript();
+        script.setResultType(resultType);
+        script.setScriptSource(new ResourceScriptSource(new ClassPathResource(path)));
+        return script;
+    }
 }

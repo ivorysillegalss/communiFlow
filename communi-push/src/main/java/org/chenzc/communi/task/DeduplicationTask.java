@@ -49,7 +49,7 @@ public class DeduplicationTask implements TaskNodeModel<TaskInfo> {
                 return;
             }
 
-                factory.newServiceInstance(deduplicationType).deduplication(entity);
+            factory.newServiceInstance(deduplicationType).deduplication(entity);
 
             if (CollUtil.isEmpty(taskInfo.getReceiver())) {
                 taskContext.setException(Boolean.TRUE)

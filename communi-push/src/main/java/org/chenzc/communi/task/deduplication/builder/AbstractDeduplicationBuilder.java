@@ -1,6 +1,5 @@
 package org.chenzc.communi.task.deduplication.builder;
 
-import cn.hutool.crypto.digest.DigestUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.chenzc.communi.constant.PushConstant;
@@ -57,32 +56,18 @@ public abstract class AbstractDeduplicationBuilder implements DeduplicationBuild
         return entity.setTaskInfo(taskInfo);
     }
 
-    /**
-     * 利用md5创建去重key
-     *
-     * @param service  去重服务 用于作唯一标识
-     * @param taskInfo 任务信息
-     * @return {@link List }<{@link String }>
-     */
-    @Override
-    public String createSingleDeduplicationKey(AbstractDeduplicationService service, TaskInfo taskInfo,String receiver){
-        String hexStr = DigestUtil.md5Hex(StringUtils.append(String.valueOf(taskInfo.getMessageTemplateId()),
-                receiver, JSON.toJSONString(taskInfo.getContentModel())));
-        return StringUtils.append(PushConstant.LIMIT_TAG_PREFIX,hexStr);
-    }
-
 
     /**
      * 创建一堆去重key
      */
-    @Override
-    public List<String> createDeduplicationKey(AbstractDeduplicationService service, TaskInfo taskInfo) {
-        Set<String> receivers = taskInfo.getReceiver();
-        List<String> result = new ArrayList<>(receivers.size());
-        for (String receiver : receivers) {
-            String hexStr = createSingleDeduplicationKey(service, taskInfo, receiver);
-            result.add(StringUtils.append(hexStr, PushConstant.LIMIT_TAG_PREFIX));
-        }
-        return result;
-    }
+//    @Override
+//    public List<String> createDeduplicationKey(AbstractDeduplicationService service, TaskInfo taskInfo) {
+//        Set<String> receivers = taskInfo.getReceiver();
+//        List<String> result = new ArrayList<>(receivers.size());
+//        for (String receiver : receivers) {
+//            String hexStr = createSingleDeduplicationKey(taskInfo, receiver);
+//            result.add(StringUtils.append(hexStr, PushConstant.SIMPLE_LIMIT_TAG_PREFIX));
+//        }
+//        return result;
+//    }
 }

@@ -1,18 +1,20 @@
 package org.chenzc.communi.task.deduplication.limit;
 
-import cn.hutool.core.collection.CollUtil;
 import org.chenzc.communi.constant.CommonConstant;
 import org.chenzc.communi.constant.PushConstant;
 import org.chenzc.communi.entity.TaskInfo;
-import org.chenzc.communi.task.deduplication.builder.DeduplicationBuilder;
 import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
 import org.chenzc.communi.task.deduplication.service.AbstractDeduplicationService;
+import org.chenzc.communi.task.deduplication.service.DeduplicationService;
 import org.chenzc.communi.utils.RedisUtils;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.*;
 
+
+//TODO 判断消息来源渠道
 /**
  * 普通计数去重 限制单用户每天能收到信息的条数
  * 由 pipelin & mget 实现
@@ -27,7 +29,9 @@ public class SimpleLimitDeduplicationService implements LimitDeduplicationServic
     private RedisUtils redisUtils;
 
     @Resource
-    private DeduplicationBuilder builder;
+    @Qualifier("FrequencyDeduplicationService")
+//    标记好注入的bean是 按频次去重的bean
+    private DeduplicationService deduplicationService;
 
     /**
      * 本程序将去重的记录存放在了Redis中 此方法本质山就是从redis中拿出对应的数据 判断他是否符合要求
@@ -42,8 +46,8 @@ public class SimpleLimitDeduplicationService implements LimitDeduplicationServic
         TaskInfo taskInfo = entity.getTaskInfo();
 
 //        构造key 从redis中拿出key
-//        key为MD5加密key value为用户发送次数
-        List<String> deduplicationKey = builder.createDeduplicationKey(service, taskInfo);
+//        key为组装key value为用户发送次数
+        List<String> deduplicationKey = deduplicationService.createDeduplicationKey(service, taskInfo);
         Map<String, String> userFrequencyValue = redisUtils.mGet(deduplicationKey);
 
 //        获取所有的接收者的信息 并且创建一个应过滤用户的Set（存储对应用户的hexKey） 上限则为receiver总人数
@@ -51,10 +55,10 @@ public class SimpleLimitDeduplicationService implements LimitDeduplicationServic
         Set<String> filterReceivers = new HashSet<>(receivers.size());
         Set<String> unFilterReceiversHex = new HashSet<>(receivers.size());
 //        在下方的使用中 filterReceivers 存的值为接收者明文
-//        unFilterReceiversHex存的值为接收者加密后的MD5Hex
+//        unFilterReceiversHex存的值为接收者组装后的key
 
         for (String receiver : receivers) {
-            String hexKey = builder.createSingleDeduplicationKey(service, taskInfo, receiver);
+            String hexKey = deduplicationService.createSingleDeduplicationKey(taskInfo, receiver);
             String value = userFrequencyValue.get(hexKey);
 
 //            当满足条件的时候 则代表该消息应该被去重
@@ -76,9 +80,10 @@ public class SimpleLimitDeduplicationService implements LimitDeduplicationServic
 
     /**
      * 更新不符合去重条件的接收者 的去重信息 重新写入redis中
-     * @param unFilterReceiversHex 不符合去重条件的接收者 set中value为MD5加密后key
-     * @param userFrequencyValue 用户去重信息
-     * @param deduplicationTime 存活时间 方便redis-pipeline写入
+     *
+     * @param unFilterReceiversHex 不符合去重条件的接收者 set中value为组装后key
+     * @param userFrequencyValue   用户去重信息
+     * @param deduplicationTime    存活时间 方便redis-pipeline写入
      */
     private void RedisAccumulateReceiver(Set<String> unFilterReceiversHex, Map<String, String> userFrequencyValue, Long deduplicationTime) {
         Map<String, String> userNewFrequencyValue = new HashMap<>(unFilterReceiversHex.size());

@@ -2,6 +2,7 @@ package org.chenzc.communi.constant;
 
 /**
  * 消息执行推送前业务 & 推送时所用常量
+ *
  * @author chenz
  * @date 2024/05/29
  */
@@ -15,11 +16,26 @@ public class PushConstant {
 
 
     /**
-     * 限流前缀
+     * 按频次去重的限流前缀
      */
-    public static final String LIMIT_TAG_PREFIX = "SIMPLE_LIMIT";
+    public static final String SIMPLE_LIMIT_TAG_PREFIX = "SIMPLE_LIMIT";
     /**
      * 去重次数累加
      */
     public static final Integer LIMIT_ACCUMULATE = 1;
+
+//    /**
+//     * 按频次去重的前缀
+//     */
+//    public static final String FREQUENCY_LIMIT_TAG = "FRE_";
+
+    /**
+     * 按时间去重的前缀
+     */
+    public static final String CONTENT_LIMIT_TAG_PREFIX = "SLIDE_WINDOW";
+
+    /**
+     * 存放限流脚本配置的文件路径
+     */
+    public static final String LIMIT_LUA_SCRIPT_PATH = "limit.lua";
 }

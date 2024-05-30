@@ -2,7 +2,6 @@ package org.chenzc.communi.task.deduplication.builder;
 
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
-import org.chenzc.communi.task.deduplication.service.AbstractDeduplicationService;
 
 import java.util.List;
 
@@ -21,6 +20,5 @@ public interface DeduplicationBuilder {
      */
     DeduplicationConfigEntity build(String deduplicationConfig, TaskInfo taskInfo);
 
-    String createSingleDeduplicationKey(AbstractDeduplicationService service,TaskInfo taskInfo,String receiver);
-    List<String> createDeduplicationKey(AbstractDeduplicationService service, TaskInfo taskInfo);
+    String createSingleDeduplicationKey(TaskInfo taskInfo,String receiver);
 }
