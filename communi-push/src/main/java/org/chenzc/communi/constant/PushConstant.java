@@ -38,4 +38,6 @@ public class PushConstant {
      * 存放限流脚本配置的文件路径
      */
     public static final String LIMIT_LUA_SCRIPT_PATH = "limit.lua";
+
+    public static final Integer TO_MILLISECONDS = 1000;
 }
