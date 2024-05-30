@@ -26,16 +26,16 @@ public enum ChannelType implements PowerfulEnums {
     /**
      * sms(短信)  -- 腾讯云、云片
      */
-    SMS(30, "sms(短信)", SmsContentModel.class,"sms", null, null),
+    SMS("30", "sms(短信)", SmsContentModel.class,"sms", null, null),
     /**
      * email(邮件) -- QQ、163邮箱
      */
-    EMAIL(40, "email(邮件)", EmailContentModel.class, "email", null, null);
+    EMAIL("40", "email(邮件)", EmailContentModel.class, "email", null, null);
 
     /**
      * 编码值
      */
-    private final Integer code;
+    private final String code;
 
     /**
      * 描述

@@ -36,27 +36,27 @@
     <dependencyManagement>
         <dependencies>
 
-<!--            mysql-->
+            <!--            mysql-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>5.1.35</version>
             </dependency>
 
-<!--            hutool-->
+            <!--            hutool-->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>5.7.15</version>
             </dependency>
 
-<!--                lombok-->
-                <dependency>
-                    <groupId>org.projectlombok</groupId>
-                    <artifactId>lombok</artifactId>
-                    <version>1.18.30</version>
-                    <scope>compile</scope>
-                </dependency>
+            <!--                lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.30</version>
+                <scope>compile</scope>
+            </dependency>
 
             <!--guava工具包-->
             <dependency>
@@ -84,6 +84,16 @@
                 <groupId>io.github.lyh200</groupId>
                 <artifactId>dynamic-tp-spring-boot-starter-apollo</artifactId>
                 <version>1.0.2</version>
+            </dependency>
+            <!--            redis-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>io.lettuce.core</groupId>
+                <artifactId>lettuce-core</artifactId>
             </dependency>
 
         </dependencies>
