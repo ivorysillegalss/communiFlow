@@ -6,3 +6,10 @@ spring:
     password:
     port: 6379
     host: 127.0.0.1
+
+communi:
+  business:
+    message:
+      topic: chenzcBusinessTopic
+    log:
+      topic: chenzcLogTopic

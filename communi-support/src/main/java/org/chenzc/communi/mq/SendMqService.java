@@ -15,6 +15,6 @@ public interface SendMqService {
     /**
      * 发送信息
      */
-    void send(String topicId,String jsonTaskInfos) throws Exception;
+    void send(String topicId,String jsonValue) throws Exception;
 
 }

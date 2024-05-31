@@ -12,7 +12,7 @@ import org.chenzc.communi.executor.TaskNodeModel;
 import org.chenzc.communi.service.ConfigService;
 import org.chenzc.communi.task.deduplication.DeduplicationFactory;
 import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
-import org.chenzc.communi.utils.EnumsUtil;
+import org.chenzc.communi.utils.EnumsUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -35,7 +35,7 @@ public class DeduplicationTask implements TaskNodeModel<TaskInfo> {
         String deduplicationConfig = configService.getProperty(PushConstant.DEDUPLICATION_RULE_KEY, CommonConstant.EMPTY_JSON_OBJECT);
 
 //        先从配置中获取到所有的去重配置
-        List<String> deduplicationList = EnumsUtil.getCodeList(DeduplicationType.class);
+        List<String> deduplicationList = EnumsUtils.getCodeList(DeduplicationType.class);
         for (String deduplicationType : deduplicationList) {
             DeduplicationConfigEntity entity = factory.newBuilderInstance(deduplicationType).build(deduplicationConfig, taskInfo);
 

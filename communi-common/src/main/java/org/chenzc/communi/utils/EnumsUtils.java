@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
  * 枚举工具类（获取枚举的描述、获取枚举的code、获取枚举的code列表）
  * @date 2024/05/29
  */
-public class EnumsUtil {
+public class EnumsUtils {
 
-    private EnumsUtil() {
+    private EnumsUtils() {
     }
 
     public static <T extends PowerfulEnums> String getDescriptionByCode(Integer code, Class<T> enumClass) {

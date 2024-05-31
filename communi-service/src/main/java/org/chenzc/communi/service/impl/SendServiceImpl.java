@@ -1,5 +1,6 @@
 package org.chenzc.communi.service.impl;
 
+import cn.monitor4all.logRecord.annotation.OperationLog;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextData;
 import org.chenzc.communi.entity.send.SendRequest;
@@ -22,6 +23,8 @@ public class SendServiceImpl implements SendService {
     private TaskController taskController;
 
     @Override
+    @OperationLog(bizType = "SendService#send", bizId = "#sendRequest.messageTemplateId", msg = "#sendRequest")
+//    接入日志组件优雅打印日志
     public SendResponse sendMessage(SendRequest sendRequest) {
 
 //        构造上下文数据

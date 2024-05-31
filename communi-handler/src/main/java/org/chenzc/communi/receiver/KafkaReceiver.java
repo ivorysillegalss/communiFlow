@@ -6,6 +6,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.chenzc.communi.push.PushService;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.utils.GroupIdMappingUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -34,7 +35,7 @@ public class KafkaReceiver {
      * @param consumerRecord
      * @param topicGroupId
      */
-    @KafkaListener(topics = "chenzcTopic")
+    @KafkaListener(topics = "#{'${communi.business.message.topic}'}")
     public void consumer(ConsumerRecord<?, String> consumerRecord, @Header(KafkaHeaders.GROUP_ID) String topicGroupId) {
         Optional<String> kafkaMessage = Optional.ofNullable(consumerRecord.value());
 //        如果信息为空 跳出

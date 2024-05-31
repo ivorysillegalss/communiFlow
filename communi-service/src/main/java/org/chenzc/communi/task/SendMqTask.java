@@ -29,10 +29,7 @@ public class SendMqTask implements TaskNodeModel<SendContextData> {
     @Resource
     private SendMqService sendMqService;
 
-    @Value("chenzc")
-    private String tagId;
-
-    @Value("chenzcTopic")
+    @Value("${communi.business.message.topic}")
     private String topicId;
 
     @Override
