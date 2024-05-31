@@ -2,6 +2,8 @@ package org.chenzc.communi.config;
 
 import org.chenzc.communi.enums.BusinessEnums;
 import org.chenzc.communi.task.DeduplicationTask;
+import org.chenzc.communi.task.DiscardTask;
+import org.chenzc.communi.task.NightShieldTask;
 import org.chenzc.communi.template.TaskController;
 import org.chenzc.communi.template.TaskTemplate;
 import org.springframework.context.annotation.Bean;
@@ -22,12 +24,18 @@ import java.util.HashMap;
 public class HandleChainConfig {
 
     @Resource
+    private DiscardTask discardTask;
+
+    @Resource
+    private NightShieldTask nightShieldTask;
+
+    @Resource
     private DeduplicationTask deduplicationTask;
 
     @Bean("handleTemplate")
     public TaskTemplate handleTemplate() {
         return TaskTemplate.builder()
-                .taskTemplate(Arrays.asList(deduplicationTask))
+                .taskTemplate(Arrays.asList(discardTask, nightShieldTask, deduplicationTask))
                 .build();
     }
 

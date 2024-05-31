@@ -24,7 +24,7 @@ public class TrackEventEntity {
      * 以消息为单位的唯一id
      * 以TaskInfoUtils生成
      */
-    private String trackId;
+    private String bizId;
 
     /**
      * 以消息为单位的唯一id

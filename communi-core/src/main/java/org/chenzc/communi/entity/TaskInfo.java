@@ -40,7 +40,6 @@ public class TaskInfo extends TaskContextData implements Serializable {
     /**
      * 业务Id(数据追踪使用)
      * 生成逻辑参考 TaskInfoUtils
-     *
      */
 //    生成逻辑上可以做文章 TODO
     private Long businessId;
@@ -58,7 +57,7 @@ public class TaskInfo extends TaskContextData implements Serializable {
     /**
      * 发送渠道
      */
-    private Integer sendChannel;
+    private String sendChannel;
 
     /**
      * 模板类型
@@ -68,12 +67,12 @@ public class TaskInfo extends TaskContextData implements Serializable {
     /**
      * 消息类型
      */
-    private Integer msgType;
+    private String msgType;
 
     /**
      * 屏蔽类型
      */
-    private Integer shieldType;
+    private String shieldType;
 
     /**
      * 发送文案模型

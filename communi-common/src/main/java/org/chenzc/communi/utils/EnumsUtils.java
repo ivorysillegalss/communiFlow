@@ -23,7 +23,7 @@ public class EnumsUtils {
                 .findFirst().map(PowerfulEnums::getMessage).orElse("");
     }
 
-    public static <T extends PowerfulEnums> T getEnumByCode(Integer code, Class<T> enumClass) {
+    public static <T extends PowerfulEnums> T getEnumByCode(String code, Class<T> enumClass) {
         return Arrays.stream(enumClass.getEnumConstants())
                 .filter(e -> Objects.equals(e.getCode(), code))
                 .findFirst().orElse(null);

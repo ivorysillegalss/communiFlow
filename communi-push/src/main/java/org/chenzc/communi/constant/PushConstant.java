@@ -39,5 +39,40 @@ public class PushConstant {
      */
     public static final String LIMIT_LUA_SCRIPT_PATH = "limit.lua";
 
+
+    /**
+     * 运行lua脚本所需单位换算
+     */
     public static final Integer TO_MILLISECONDS = 1000;
+
+
+    /**
+     * 丢弃的消息模板的ID
+     */
+    public static final String DISCARD_MESSAGE_TEMPLATE_ID = "discardMessageTemplateId";
+
+    /**
+     * 存储需要进行夜间消息屏蔽的ID
+     */
+    public static final String NIGHT_SHIELD_TEMPLATE_ID = "nightShieldTemplateId";
+
+    /**
+     * 消息夜间屏蔽所用
+     * <p>
+     * 配置晚上具体时间 （超过此时间需要将信息放到第二天早上再发）
+     */
+    public static final Integer NIGHT_TIME = 9;
+
+    /**
+     * 夜间消息屏蔽 第二天再发送
+     * 先将消息暂存到redis中 此为redis前缀
+     *
+     * @see org.chenzc.communi.task.NightShieldTask
+     */
+    public static final String NIGHT_SHIELD_NEXT_DAY_SEND_KEY = "nightShieldNextDaySend";
+
+    /**
+     * 一天 = N 秒
+     */
+    public static final Long SECONDS_OF_A_DAY = 86400L;
 }

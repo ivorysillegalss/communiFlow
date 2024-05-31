@@ -23,6 +23,7 @@ public class TaskInfoUtils {
      *
      * @return
      */
+//    这里也许可以优化？ TODO
     public static String generateMessageId() {
         return IdUtil.nanoId();
     }
