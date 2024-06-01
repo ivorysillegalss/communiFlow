@@ -3,7 +3,7 @@ package org.chenzc.communi.task;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import org.chenzc.communi.constant.CommonConstant;
-import org.chenzc.communi.constant.PushConstant;
+import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.*;
 import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.enums.TrackEventType;
@@ -37,7 +37,7 @@ public class DiscardTask implements TaskNodeModel<TaskInfo> {
     @Override
     public void execute(TaskContext<TaskInfo> taskContext) {
         TaskInfo taskInfo = taskContext.getBusinessContextData();
-        String discardMessageTemplateIdsArray = config.getProperty(PushConstant.DISCARD_MESSAGE_TEMPLATE_ID, CommonConstant.EMPTY_VALUE_JSON_ARRAY);
+        String discardMessageTemplateIdsArray = config.getProperty(TaskConstant.DISCARD_MESSAGE_TEMPLATE_ID, CommonConstant.EMPTY_VALUE_JSON_ARRAY);
         JSONArray jsonArray = JSON.parseArray(discardMessageTemplateIdsArray);
 
         if (jsonArray.contains(String.valueOf(taskInfo.getMessageTemplateId()))){

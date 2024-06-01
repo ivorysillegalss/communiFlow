@@ -2,6 +2,8 @@ package org.chenzc.communi.content;
 
 import lombok.*;
 
+import java.util.Set;
+
 /**
  * @author 3y
  * <p>
@@ -28,5 +30,5 @@ public class EmailContentModel extends ContentModel {
     /**
      * 邮件附件链接
      */
-    private String url;
+    private Set<String> url;
 }

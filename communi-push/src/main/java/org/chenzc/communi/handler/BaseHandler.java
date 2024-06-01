@@ -26,7 +26,7 @@ public abstract class BaseHandler implements Handler {
     /**
      * 表示对应渠道的码 在子类初始化对应的
      */
-    private String channelCode;
+    protected String channelCode;
 
     /**
      * 处理器同一对象

@@ -1,12 +1,12 @@
 package org.chenzc.communi.constant;
 
 /**
- * 消息执行推送前业务 & 推送时所用常量
+ * 消息执行推送前业务 所用常量
  *
  * @author chenz
  * @date 2024/05/29
  */
-public class PushConstant {
+public class TaskConstant {
 
     /**
      * 去重业务存到配指文件中的key

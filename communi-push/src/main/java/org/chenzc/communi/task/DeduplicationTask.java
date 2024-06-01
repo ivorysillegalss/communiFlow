@@ -2,7 +2,7 @@ package org.chenzc.communi.task;
 
 import cn.hutool.core.collection.CollUtil;
 import org.chenzc.communi.constant.CommonConstant;
-import org.chenzc.communi.constant.PushConstant;
+import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextResponse;
 import org.chenzc.communi.entity.TaskInfo;
@@ -32,7 +32,7 @@ public class DeduplicationTask implements TaskNodeModel<TaskInfo> {
         TaskInfo taskInfo = taskContext.getBusinessContextData();
 
 //        从配置文件中读取去重规则 如果没有对应的规则则返回默认值
-        String deduplicationConfig = configService.getProperty(PushConstant.DEDUPLICATION_RULE_KEY, CommonConstant.EMPTY_JSON_OBJECT);
+        String deduplicationConfig = configService.getProperty(TaskConstant.DEDUPLICATION_RULE_KEY, CommonConstant.EMPTY_JSON_OBJECT);
 
 //        先从配置中获取到所有的去重配置
         List<String> deduplicationList = EnumsUtils.getCodeList(DeduplicationType.class);

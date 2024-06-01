@@ -2,19 +2,15 @@ package org.chenzc.communi.task.deduplication.builder;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import org.chenzc.communi.constant.PushConstant;
+import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.task.deduplication.DeduplicationFactory;
 import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
-import org.chenzc.communi.task.deduplication.service.AbstractDeduplicationService;
 import org.chenzc.communi.utils.StringUtils;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public abstract class AbstractDeduplicationBuilder implements DeduplicationBuilder {
 
@@ -50,7 +46,7 @@ public abstract class AbstractDeduplicationBuilder implements DeduplicationBuild
 //        先通过类型转换判断是否一个合法的结构体
         if (Objects.isNull(jsonObject)) return null;
 
-        DeduplicationConfigEntity entity = JSON.parseObject(jsonObject.getString(StringUtils.append(PushConstant.DEDUPLICATION_CONFIG_PREFIX, deduplicationType)), DeduplicationConfigEntity.class);
+        DeduplicationConfigEntity entity = JSON.parseObject(jsonObject.getString(StringUtils.append(TaskConstant.DEDUPLICATION_CONFIG_PREFIX, deduplicationType)), DeduplicationConfigEntity.class);
         if (Objects.isNull(entity)) return null;
 
         return entity.setTaskInfo(taskInfo);
@@ -66,7 +62,7 @@ public abstract class AbstractDeduplicationBuilder implements DeduplicationBuild
 //        List<String> result = new ArrayList<>(receivers.size());
 //        for (String receiver : receivers) {
 //            String hexStr = createSingleDeduplicationKey(taskInfo, receiver);
-//            result.add(StringUtils.append(hexStr, PushConstant.SIMPLE_LIMIT_TAG_PREFIX));
+//            result.add(StringUtils.append(hexStr, TaskConstant.SIMPLE_LIMIT_TAG_PREFIX));
 //        }
 //        return result;
 //    }

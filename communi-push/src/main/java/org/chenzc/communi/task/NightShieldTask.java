@@ -2,19 +2,15 @@ package org.chenzc.communi.task;
 
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import org.chenzc.communi.constant.CommonConstant;
-import org.chenzc.communi.constant.PushConstant;
+import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.*;
 import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.enums.ShieldType;
 import org.chenzc.communi.enums.TrackEventType;
 import org.chenzc.communi.executor.TaskNodeModel;
-import org.chenzc.communi.service.ConfigService;
 import org.chenzc.communi.utils.LogUtils;
 import org.chenzc.communi.utils.RedisUtils;
-import org.chenzc.communi.utils.StringUtils;
 import org.chenzc.communi.utils.TaskInfoUtils;
 import org.springframework.stereotype.Service;
 
@@ -60,7 +56,7 @@ public class NightShieldTask implements TaskNodeModel<TaskInfo> {
 //        2. 夜间需要进行屏蔽
 
 //        获取当前的时间 判断是否夜间
-        if (LocalDateTime.now().getHour() < PushConstant.NIGHT_TIME){
+        if (LocalDateTime.now().getHour() < TaskConstant.NIGHT_TIME){
 
 //            2.1 夜间屏蔽
             if (shieldType.equals(ShieldType.NIGHT_SHIELD.getCode())) {
@@ -89,9 +85,9 @@ public class NightShieldTask implements TaskNodeModel<TaskInfo> {
 //        并将消息放入消息队列中存储 第二天直接发布定时任务扫表 统一处理 也可以分配更好的解决方法 TODO
             if (shieldType.equals(ShieldType.NIGHT_SHIELD_NEXT_DAY_SEND.getCode())) {
 
-                redisUtils.lPush(PushConstant.NIGHT_SHIELD_NEXT_DAY_SEND_KEY,
+                redisUtils.lPush(TaskConstant.NIGHT_SHIELD_NEXT_DAY_SEND_KEY,
                         JSON.toJSONString(taskInfo, SerializerFeature.WriteClassName),
-                        PushConstant.SECONDS_OF_A_DAY);
+                        TaskConstant.SECONDS_OF_A_DAY);
 
                 logUtils.print(
                         LogEntity.builder().build()

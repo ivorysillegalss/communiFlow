@@ -1,8 +1,7 @@
 package org.chenzc.communi.task.deduplication.limit;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
-import org.chenzc.communi.constant.PushConstant;
+import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
 import org.chenzc.communi.task.deduplication.service.AbstractDeduplicationService;
@@ -40,7 +39,7 @@ public class SlideWindowLimitDeduplicationService implements LimitDeduplicationS
     @PostConstruct
     public void init() {
 //        配置redisLua脚本相关
-        redisScript = redisUtils.initialRedisScript(Long.class, PushConstant.LIMIT_LUA_SCRIPT_PATH);
+        redisScript = redisUtils.initialRedisScript(Long.class, TaskConstant.LIMIT_LUA_SCRIPT_PATH);
     }
 
     /**
@@ -67,7 +66,7 @@ public class SlideWindowLimitDeduplicationService implements LimitDeduplicationS
             Boolean isDeduplication = redisUtils.execLimitLua(redisScript,
                     Collections.singletonList(deduplicationKey),
 
-                    String.valueOf(entity.getDeduplicationTime() * PushConstant.TO_MILLISECONDS),
+                    String.valueOf(entity.getDeduplicationTime() * TaskConstant.TO_MILLISECONDS),
 //                    默认去重规则中 deduplicationTime 的单位是秒 此处转换为ms后存入数据库当中
                     String.valueOf(nowTime),
 //                    存入当前的时间 （更新时间戳窗口）

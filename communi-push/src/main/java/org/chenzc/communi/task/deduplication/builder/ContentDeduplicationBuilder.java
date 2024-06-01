@@ -2,7 +2,7 @@ package org.chenzc.communi.task.deduplication.builder;
 
 import cn.hutool.crypto.digest.DigestUtil;
 import com.alibaba.fastjson.JSON;
-import org.chenzc.communi.constant.PushConstant;
+import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.enums.DeduplicationType;
 import org.chenzc.communi.enums.TrackEventType;
@@ -41,6 +41,6 @@ public class ContentDeduplicationBuilder extends AbstractDeduplicationBuilder im
     public String createSingleDeduplicationKey(TaskInfo taskInfo, String receiver) {
         String hexStr = DigestUtil.md5Hex(StringUtils.append(String.valueOf(taskInfo.getMessageTemplateId()),
                 receiver, JSON.toJSONString(taskInfo.getContentModel())));
-        return StringUtils.append(PushConstant.CONTENT_LIMIT_TAG_PREFIX, hexStr);
+        return StringUtils.append(TaskConstant.CONTENT_LIMIT_TAG_PREFIX, hexStr);
     }
 }

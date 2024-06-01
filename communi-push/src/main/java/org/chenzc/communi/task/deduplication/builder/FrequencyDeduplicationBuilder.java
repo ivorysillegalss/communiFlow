@@ -1,7 +1,7 @@
 package org.chenzc.communi.task.deduplication.builder;
 
 import cn.hutool.core.text.StrPool;
-import org.chenzc.communi.constant.PushConstant;
+import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.enums.DeduplicationType;
 import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
@@ -37,7 +37,7 @@ public class FrequencyDeduplicationBuilder extends AbstractDeduplicationBuilder 
      */
     @Override
     public String createSingleDeduplicationKey(TaskInfo taskInfo, String receiver) {
-        return StringUtils.append(PushConstant.SIMPLE_LIMIT_TAG_PREFIX
+        return StringUtils.append(TaskConstant.SIMPLE_LIMIT_TAG_PREFIX
                 , StrPool.C_UNDERLINE
                 , receiver
                 , StrPool.C_UNDERLINE

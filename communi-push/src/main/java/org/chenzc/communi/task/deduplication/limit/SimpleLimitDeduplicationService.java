@@ -1,7 +1,7 @@
 package org.chenzc.communi.task.deduplication.limit;
 
 import org.chenzc.communi.constant.CommonConstant;
-import org.chenzc.communi.constant.PushConstant;
+import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
 import org.chenzc.communi.task.deduplication.service.AbstractDeduplicationService;
@@ -93,7 +93,7 @@ public class SimpleLimitDeduplicationService implements LimitDeduplicationServic
             if (Objects.isNull(value)) {
                 userNewFrequencyValue.put(unFilterReceiver, CommonConstant.ONE);
             } else {
-                userNewFrequencyValue.put(unFilterReceiver, String.valueOf(Integer.parseInt(value) + PushConstant.LIMIT_ACCUMULATE));
+                userNewFrequencyValue.put(unFilterReceiver, String.valueOf(Integer.parseInt(value) + TaskConstant.LIMIT_ACCUMULATE));
             }
         }
         redisUtils.pipelineSetEx(userNewFrequencyValue, deduplicationTime);

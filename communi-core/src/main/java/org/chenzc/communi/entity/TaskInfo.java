@@ -80,7 +80,6 @@ public class TaskInfo extends TaskContextData implements Serializable {
      * 不同的渠道要发送的内容不一样(比如发push会有img，而短信没有)
      * 所以会有ContentModel
      */
-//    未补充第三方接入模型内容 TODO
 
     private ContentModel contentModel;
 
