@@ -11,21 +11,16 @@ import org.chenzc.communi.annonation.Handler;
 import org.chenzc.communi.constant.CommonConstant;
 import org.chenzc.communi.constant.HandlerConstant;
 import org.chenzc.communi.content.SmsContentModel;
-import org.chenzc.communi.entity.SmsAccount;
-import org.chenzc.communi.entity.SmsBalanceConfigEntity;
-import org.chenzc.communi.entity.SmsParam;
-import org.chenzc.communi.entity.TaskInfo;
+import org.chenzc.communi.entity.*;
 import org.chenzc.communi.enums.ChannelType;
 import org.chenzc.communi.handler.BaseHandler;
+import org.chenzc.communi.script.SmsScript;
 import org.chenzc.communi.service.ConfigService;
 import org.chenzc.communi.utils.StringUtils;
 import org.springframework.context.ApplicationContext;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Handler
 @Slf4j
@@ -64,17 +59,58 @@ public class SmsHandler extends BaseHandler {
                 smsParam.setScriptName(balanceEntity.getScriptName())
                         .setSendAccountId(balanceEntity.getSendAccount());
 
-                applicationContext.getBean(balanceEntity.getScriptName(),SmsSc)
-            }
+                List<SmsRecord> smsRecords = applicationContext.getBean(balanceEntity.getScriptName(), SmsScript.class).send(smsParam);
 
+                if (!CollUtil.isEmpty(smsRecords)) {
+//                    saveReceive TODO 保持下发操作的返回值 作为回执
+                    return true;
+                }
+
+            }
         } catch (Exception e) {
             log.error("SmsHandler#handler fail:{},params:{}", Throwables.getStackTraceAsString(e), JSON.toJSONString(smsParam));
         }
         return false;
     }
 
+    /**
+     * 负载均衡算法
+     *
+     * @param smsConfig 不同渠道中的权重配置
+     * @return {@link SmsBalanceConfigEntity[] }
+     */
+//    可以加多点负载均衡的算法 将其策略化
     private SmsBalanceConfigEntity[] loadBalance(List<SmsBalanceConfigEntity> smsConfig) {
+        int total = 0;
+        for (SmsBalanceConfigEntity smsBalanceConfig : smsConfig) {
+            total += smsBalanceConfig.getWeights();
+        }
 
+        // 生成一个随机数[1,total]，看落到哪个区间
+        int index = new Random().nextInt(total) + 1;
+
+//        首选以及备选供应商
+        SmsBalanceConfigEntity supplier = null;
+        SmsBalanceConfigEntity supplierBack = null;
+
+        for (int i = 0; i < smsConfig.size(); ++i) {
+            if (index <= smsConfig.get(i).getWeights()) {
+                supplier = smsConfig.get(i);
+
+                // 计算下一个供应商的索引 如果当前供应商为最后一个 则从列表开始重新选择（循环队列）
+                int j = (i + 1) % smsConfig.size();
+
+//                如果 i == j 则代表列表中只有这一个供应商 且仅返回这一个
+                if (i == j) {
+                    return new SmsBalanceConfigEntity[]{supplier};
+                }
+//                返回索引后的备用供应商
+                supplierBack = smsConfig.get(j);
+                return new SmsBalanceConfigEntity[]{supplier, supplierBack};
+            }
+            index -= smsConfig.get(i).getWeights();
+        }
+        return new SmsBalanceConfigEntity[0];
     }
 
     /**
@@ -94,6 +130,17 @@ public class SmsHandler extends BaseHandler {
 
     /**
      * 根据消息模板判断需执行的配置 （负载均衡策略等）
+     * 补充样例
+     *          <p>
+     *      * key：msgTypeSmsConfig
+     *      * value：[{"message_type_10":[{"weights":80,"scriptName":"TencentSmsScript"},
+     *      * {"weights":20,"scriptName":"YunPianSmsScript"}]},
+     *      * {"message_type_20":[{"weights":20,"scriptName":"YunPianSmsScript"}]},
+     *      * {"message_type_30":[{"weights":20,"scriptName":"TencentSmsScript"}]},
+     *      * {"message_type_40":[{"weights":20,"scriptName":"TencentSmsScript"}]}]
+     *      * <p>
+     *
+     *
      *
      * @param taskInfo
      * @return {@link List }<{@link SmsBalanceConfigEntity }>
@@ -118,7 +165,7 @@ public class SmsHandler extends BaseHandler {
         for (int i = 0; i < jsonArray.size(); i++) {
             jsonArray.getJSONObject(i).getJSONArray(StringUtils.append(HandlerConstant.SMS_LOAD_BALANCE_KEY, taskInfo.getMsgType()));
             if (CollUtil.isEmpty(jsonArray)) {
-                return JSON.parseArray(JSON.toJSONString(jsonArray), SmsBalanceConfigEntity.class)
+                return JSON.parseArray(JSON.toJSONString(jsonArray), SmsBalanceConfigEntity.class);
             }
         }
 
