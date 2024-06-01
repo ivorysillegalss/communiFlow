@@ -3,14 +3,12 @@ package org.chenzc.communi.handler.impl;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.mail.MailAccount;
 import cn.hutool.extra.mail.MailUtil;
-import com.alibaba.fastjson.JSON;
 import com.google.common.base.Throwables;
 import com.sun.mail.util.MailSSLSocketFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.annonation.Handler;
 import org.chenzc.communi.constant.HandlerConstant;
 import org.chenzc.communi.content.EmailContentModel;
-import org.chenzc.communi.entity.ChannelAccount;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.enums.ChannelType;
 import org.chenzc.communi.handler.BaseHandler;
@@ -18,7 +16,8 @@ import org.chenzc.communi.utils.FileUtils;
 
 import java.io.File;
 import java.util.List;
-import java.util.Optional;
+
+import static org.chenzc.communi.utils.accountUtils.getAccountById;
 
 @Handler
 @Slf4j
@@ -60,7 +59,7 @@ public class EmailHandler extends BaseHandler {
      * @return {@link MailAccount }
      */
     private MailAccount getAccountConfig(Integer sendAccount) {
-        MailAccount mailAccount = getAccountById(sendAccount);
+        MailAccount mailAccount = getAccountById(sendAccount, MailAccount.class);
         try {
             MailSSLSocketFactory mailSSLSocketFactory = new MailSSLSocketFactory();
             mailSSLSocketFactory.setTrustAllHosts(Boolean.TRUE);
@@ -72,34 +71,6 @@ public class EmailHandler extends BaseHandler {
             log.error("EmailHandler#getAccount fail!{}", Throwables.getStackTraceAsString(e));
         }
         return mailAccount;
-    }
-
-    /**
-     * 根据id从库中获取ID 并判断是否存在
-     *
-     * @param sendAccountId
-     * @return {@link MailAccount }
-     */
-    private MailAccount getAccountById(Integer sendAccountId) {
-        {
-            try {
-                Optional<ChannelAccount> optionalChannelAccount = null;
-//                optionalChannelAccount = channelAccountDao.findById(Long.valueOf(sendAccountId));
-//                CRUD TODO
-
-//            获取账户 如果账户存在
-                if (optionalChannelAccount.isPresent()) {
-                    ChannelAccount channelAccount = optionalChannelAccount.get();
-
-                    return JSON.parseObject(channelAccount.getAccountConfig(), MailAccount.class);
-
-                }
-            } catch (Exception e) {
-                log.error("AccountUtils#getAccount fail! e:{}", Throwables.getStackTraceAsString(e));
-            }
-            return null;
-        }
-
     }
 
 }

@@ -1,5 +1,6 @@
 package org.chenzc.communi.handler;
 
+import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.LogEntity;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.entity.TrackEventEntity;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
  * @author chenz
  * @date 2024/05/27
  */
+@Slf4j
 public abstract class BaseHandler implements Handler {
 
     @Resource

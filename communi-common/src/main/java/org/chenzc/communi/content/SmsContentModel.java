@@ -22,7 +22,7 @@ public class SmsContentModel extends ContentModel {
     private String content;
 
     /**
-     * 短信发送链接
+     * 短信发送链接 (短信中夹杂的链接 默认在短信之后发)
      */
     private String url;
 
