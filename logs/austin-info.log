@@ -1,0 +1,14 @@
+2024-06-02 01:37:17.138 [main] INFO  org.chenzc.communi.CommuniApplication - Starting CommuniApplication using Java 1.8.0_392 on Chenzc with PID 1140 (D:\Idea\IdeaProject\communiFlow\communi-application\target\classes started by chenz in D:\Idea\IdeaProject\communiFlow)
+2024-06-02 01:37:18.160 [main] INFO  org.chenzc.communi.CommuniApplication - No active profile set, falling back to default profiles: default
+2024-06-02 01:37:18.651 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-06-02 01:37:18.653 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-02 01:37:18.674 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2024-06-02 01:37:19.065 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 3000 (http)
+2024-06-02 01:37:19.071 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3000"]
+2024-06-02 01:37:19.072 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-02 01:37:19.072 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-06-02 01:37:19.131 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-02 01:37:19.131 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 944 ms
+2024-06-02 01:37:19.758 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-3000"]
+2024-06-02 01:37:19.772 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 3000 (http) with context path ''
+2024-06-02 01:37:19.780 [main] INFO  org.chenzc.communi.CommuniApplication - Started CommuniApplication in 7.851 seconds (JVM running for 13.719)

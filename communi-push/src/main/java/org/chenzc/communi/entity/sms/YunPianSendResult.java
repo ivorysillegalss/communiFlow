@@ -1,4 +1,4 @@
-package org.chenzc.communi.entity;
+package org.chenzc.communi.entity.sms;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;

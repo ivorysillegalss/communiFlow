@@ -1,7 +1,7 @@
 package org.chenzc.communi.script;
 
-import org.chenzc.communi.entity.SmsParam;
-import org.chenzc.communi.entity.SmsRecord;
+import org.chenzc.communi.entity.sms.SmsParam;
+import org.chenzc.communi.entity.sms.SmsRecord;
 
 import java.util.List;
 

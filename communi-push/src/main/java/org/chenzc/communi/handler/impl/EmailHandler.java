@@ -17,7 +17,7 @@ import org.chenzc.communi.utils.FileUtils;
 import java.io.File;
 import java.util.List;
 
-import static org.chenzc.communi.utils.accountUtils.getAccountById;
+import static org.chenzc.communi.utils.AccountUtils.getAccountById;
 
 @Handler
 @Slf4j

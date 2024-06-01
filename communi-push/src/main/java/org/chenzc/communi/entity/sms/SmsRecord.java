@@ -1,4 +1,4 @@
-package org.chenzc.communi.entity;
+package org.chenzc.communi.entity.sms;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

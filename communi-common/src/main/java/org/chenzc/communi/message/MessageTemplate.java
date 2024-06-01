@@ -65,7 +65,7 @@ public class MessageTemplate implements Serializable {
     /**
      * 发送渠道
      */
-    private Integer sendChannel;
+    private String sendChannel;
 
     /**
      * 模板类型
@@ -75,12 +75,12 @@ public class MessageTemplate implements Serializable {
     /**
      * 屏蔽类型
      */
-    private Integer shieldType;
+    private String shieldType;
 
     /**
      * 消息类型
      */
-    private Integer msgType;
+    private String msgType;
 
     /**
      * 推送消息的时间

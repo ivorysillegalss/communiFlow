@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-public class accountUtils {
+public class AccountUtils {
     /**
      * 根据id从库中获取ID 并判断是否存在
      *

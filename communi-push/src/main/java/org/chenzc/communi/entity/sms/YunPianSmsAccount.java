@@ -1,8 +1,9 @@
-package org.chenzc.communi.entity;
+package org.chenzc.communi.entity.sms;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.chenzc.communi.entity.SmsAccount;
 
 
 /**

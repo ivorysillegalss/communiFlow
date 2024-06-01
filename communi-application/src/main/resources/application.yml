@@ -13,3 +13,5 @@ communi:
       topic: chenzcBusinessTopic
     log:
       topic: chenzcLogTopic
+    graylog:
+      ip: 127.0.0.1
