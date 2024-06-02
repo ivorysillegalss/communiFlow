@@ -1,14 +1,13 @@
 package org.chenzc.communi.handler;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.LogEntity;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.entity.TrackEventEntity;
 import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.utils.LogUtils;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * 所有第三方消息推送类的父类 包含其中一些共用的方法以及初始化

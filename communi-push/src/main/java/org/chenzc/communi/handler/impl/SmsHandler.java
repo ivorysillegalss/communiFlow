@@ -22,7 +22,7 @@ import org.chenzc.communi.utils.AccountUtils;
 import org.chenzc.communi.utils.StringUtils;
 import org.springframework.context.ApplicationContext;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.*;
 
 @Handler

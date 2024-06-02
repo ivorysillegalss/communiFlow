@@ -1,5 +1,6 @@
 package org.chenzc.communi.config;
 
+import jakarta.annotation.Resource;
 import org.chenzc.communi.enums.BusinessEnums;
 import org.chenzc.communi.task.DeduplicationTask;
 import org.chenzc.communi.task.DiscardTask;
@@ -9,7 +10,7 @@ import org.chenzc.communi.template.TaskTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
+
 import java.util.Arrays;
 import java.util.HashMap;
 

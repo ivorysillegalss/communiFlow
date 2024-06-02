@@ -4,6 +4,7 @@ import cn.hutool.extra.mail.MailAccount;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.base.Throwables;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.constant.CommonConstant;
 import org.chenzc.communi.dao.ChannelAccountDao;
@@ -12,7 +13,7 @@ import org.chenzc.communi.entity.SmsAccount;
 import org.chenzc.communi.enums.ChannelType;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+
 import java.util.*;
 
 @Slf4j

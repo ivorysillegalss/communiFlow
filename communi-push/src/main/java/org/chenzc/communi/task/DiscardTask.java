@@ -2,6 +2,7 @@ package org.chenzc.communi.task;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import jakarta.annotation.Resource;
 import org.chenzc.communi.constant.CommonConstant;
 import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.*;
@@ -13,7 +14,7 @@ import org.chenzc.communi.utils.LogUtils;
 import org.chenzc.communi.utils.TaskInfoUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+
 
 /**
  * 消息丢弃业务责任链节点 判断消息对应模板是否合法（被丢弃）

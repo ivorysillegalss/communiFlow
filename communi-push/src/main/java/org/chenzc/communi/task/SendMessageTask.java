@@ -1,12 +1,13 @@
 package org.chenzc.communi.task;
 
+import jakarta.annotation.Resource;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.executor.TaskNodeModel;
 import org.chenzc.communi.handler.HandlerFactory;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+
 
 /**
  * 处理完其余逻辑 调用第三方服务下发消息

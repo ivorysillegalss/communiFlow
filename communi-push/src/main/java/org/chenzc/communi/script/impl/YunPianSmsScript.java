@@ -9,6 +9,7 @@ import cn.hutool.http.Header;
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Throwables;
+import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.chenzc.communi.annonation.Handler;
 import org.chenzc.communi.constant.CommonConstant;
@@ -23,7 +24,7 @@ import org.chenzc.communi.utils.AccountUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.Resource;
+
 import java.util.*;
 import java.util.stream.Collectors;
 

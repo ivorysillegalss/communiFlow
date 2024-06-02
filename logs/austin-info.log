@@ -1181,3 +1181,18 @@ Error starting ApplicationContext. To display the condition evaluation report re
 2024-06-02 19:57:46.610 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-06-02 20:05:14.445 [main] INFO  org.chenzc.communi.CommuniApplication - Starting CommuniApplication using Java 17.0.11 with PID 24888 (D:\Idea\IdeaProject\communiFlow\communi-application\target\classes started by chenz in D:\Idea\IdeaProject\communiFlow)
+2024-06-02 20:05:15.485 [main] INFO  org.chenzc.communi.CommuniApplication - No active profile set, falling back to 1 default profile: "default"
+2024-06-02 20:05:15.988 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-02 20:05:15.991 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-02 20:05:16.025 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2024-06-02 20:05:16.503 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 3000 (http)
+2024-06-02 20:05:16.512 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3000"]
+2024-06-02 20:05:16.514 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-02 20:05:16.515 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-02 20:05:16.562 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-02 20:05:16.563 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1041 ms
+2024-06-02 20:05:16.637 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-06-02 20:05:16.648 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.

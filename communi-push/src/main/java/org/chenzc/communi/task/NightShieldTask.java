@@ -3,6 +3,7 @@ package org.chenzc.communi.task;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import jakarta.annotation.Resource;
 import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.*;
 import org.chenzc.communi.enums.RespEnums;
@@ -14,7 +15,7 @@ import org.chenzc.communi.utils.RedisUtils;
 import org.chenzc.communi.utils.TaskInfoUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+
 import java.time.LocalDateTime;
 
 /**

@@ -1,6 +1,7 @@
 package org.chenzc.communi.task;
 
 import cn.hutool.core.collection.CollUtil;
+import jakarta.annotation.Resource;
 import org.chenzc.communi.constant.CommonConstant;
 import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.TaskContext;
@@ -15,7 +16,7 @@ import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
 import org.chenzc.communi.utils.EnumsUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+
 import java.util.List;
 
 @Service

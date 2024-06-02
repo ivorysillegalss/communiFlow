@@ -5,6 +5,7 @@ import cn.hutool.extra.mail.MailAccount;
 import cn.hutool.extra.mail.MailUtil;
 import com.google.common.base.Throwables;
 import com.sun.mail.util.MailSSLSocketFactory;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.annonation.Handler;
 import org.chenzc.communi.constant.HandlerConstant;
@@ -15,7 +16,7 @@ import org.chenzc.communi.handler.BaseHandler;
 import org.chenzc.communi.utils.AccountUtils;
 import org.chenzc.communi.utils.FileUtils;
 
-import javax.annotation.Resource;
+
 import java.io.File;
 import java.util.List;
 
