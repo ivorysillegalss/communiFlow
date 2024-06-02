@@ -1,13 +1,13 @@
 package org.chenzc.communi.pending;
 
 import com.dtp.core.thread.DtpExecutor;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import org.chenzc.communi.config.TaskHandlerThreadPoolConfig;
 import org.chenzc.communi.utils.GroupIdMappingUtils;
 import org.chenzc.communi.utils.ThreadPoolUtils;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

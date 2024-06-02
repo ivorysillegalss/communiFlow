@@ -12,16 +12,20 @@ import org.chenzc.communi.content.EmailContentModel;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.enums.ChannelType;
 import org.chenzc.communi.handler.BaseHandler;
+import org.chenzc.communi.utils.AccountUtils;
 import org.chenzc.communi.utils.FileUtils;
 
+import javax.annotation.Resource;
 import java.io.File;
 import java.util.List;
-
-import static org.chenzc.communi.utils.AccountUtils.getAccountById;
 
 @Handler
 @Slf4j
 public class EmailHandler extends BaseHandler {
+
+    @Resource
+    private AccountUtils accountUtils;
+
 
     /**
      * 初始化配置渠道码
@@ -59,7 +63,7 @@ public class EmailHandler extends BaseHandler {
      * @return {@link MailAccount }
      */
     private MailAccount getAccountConfig(Integer sendAccount) {
-        MailAccount mailAccount = getAccountById(sendAccount, MailAccount.class);
+        MailAccount mailAccount = accountUtils.getAccountById(sendAccount, MailAccount.class);
         try {
             MailSSLSocketFactory mailSSLSocketFactory = new MailSSLSocketFactory();
             mailSSLSocketFactory.setTrustAllHosts(Boolean.TRUE);

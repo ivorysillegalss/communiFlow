@@ -3,10 +3,11 @@ package org.chenzc.communi.utils;
 
 import com.dtp.core.DtpRegistry;
 import com.dtp.core.thread.DtpExecutor;
+import jakarta.annotation.Resource;
 import org.chenzc.communi.config.ThreadPoolExecutorShutdownDefinition;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+
 
 @Component
 public class ThreadPoolUtils {

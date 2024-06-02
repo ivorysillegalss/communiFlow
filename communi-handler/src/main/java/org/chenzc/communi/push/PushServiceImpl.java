@@ -1,13 +1,13 @@
 package org.chenzc.communi.push;
 
 import cn.hutool.core.collection.CollUtil;
+import jakarta.annotation.Resource;
 import org.chenzc.communi.pending.TaskFactory;
 import org.chenzc.communi.pending.Task;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.utils.GroupIdMappingUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service

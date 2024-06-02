@@ -18,6 +18,7 @@ import org.chenzc.communi.enums.ChannelType;
 import org.chenzc.communi.handler.BaseHandler;
 import org.chenzc.communi.script.SmsScript;
 import org.chenzc.communi.service.ConfigService;
+import org.chenzc.communi.utils.AccountUtils;
 import org.chenzc.communi.utils.StringUtils;
 import org.springframework.context.ApplicationContext;
 
@@ -27,6 +28,9 @@ import java.util.*;
 @Handler
 @Slf4j
 public class SmsHandler extends BaseHandler {
+
+    @Resource
+    private AccountUtils accountUtils;
 
     @Resource
     private ApplicationContext applicationContext;
@@ -133,16 +137,14 @@ public class SmsHandler extends BaseHandler {
     /**
      * 根据消息模板判断需执行的配置 （负载均衡策略等）
      * 补充样例
-     *          <p>
-     *      * key：msgTypeSmsConfig
-     *      * value：[{"message_type_10":[{"weights":80,"scriptName":"TencentSmsScript"},
-     *      * {"weights":20,"scriptName":"YunPianSmsScript"}]},
-     *      * {"message_type_20":[{"weights":20,"scriptName":"YunPianSmsScript"}]},
-     *      * {"message_type_30":[{"weights":20,"scriptName":"TencentSmsScript"}]},
-     *      * {"message_type_40":[{"weights":20,"scriptName":"TencentSmsScript"}]}]
-     *      * <p>
-     *
-     *
+     * <p>
+     * * key：msgTypeSmsConfig
+     * * value：[{"message_type_10":[{"weights":80,"scriptName":"TencentSmsScript"},
+     * * {"weights":20,"scriptName":"YunPianSmsScript"}]},
+     * * {"message_type_20":[{"weights":20,"scriptName":"YunPianSmsScript"}]},
+     * * {"message_type_30":[{"weights":20,"scriptName":"TencentSmsScript"}]},
+     * * {"message_type_40":[{"weights":20,"scriptName":"TencentSmsScript"}]}]
+     * * <p>
      *
      * @param taskInfo
      * @return {@link List }<{@link SmsBalanceConfigEntity }>
@@ -151,8 +153,7 @@ public class SmsHandler extends BaseHandler {
 
 //        若指定发送账号（账号配置中有渠道相关信息） 则指定发送的渠道等
         if (!taskInfo.getSendAccount().equals(HandlerConstant.SMS_AUTO_FLOW_RULE)) {
-//            CRUD TODO
-            SmsAccount smsAccount = new SmsAccount();
+            SmsAccount smsAccount = accountUtils.getAccountById(taskInfo.getSendAccount(), SmsAccount.class);
             return Collections.singletonList(SmsBalanceConfigEntity.builder()
                     .scriptName(smsAccount.getScriptName())
                     .sendAccount(taskInfo.getSendAccount())

@@ -7,7 +7,6 @@ import com.google.common.base.Throwables;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.LogEntity;
 import org.chenzc.communi.entity.TrackEventEntity;
-import org.chenzc.communi.enums.TrackEventType;
 import org.chenzc.communi.mq.SendMqService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

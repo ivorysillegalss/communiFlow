@@ -21,27 +21,35 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.6</version>
+        <version>3.3.0</version>
         <relativePath/>
     </parent>
 
     <dependencyManagement>
         <dependencies>
 
-            <!--            mysql-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.5</version>
+            </dependency>
+
+
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.35</version>
+                <version>8.0.28</version>
             </dependency>
+
 
             <!--            hutool-->
             <dependency>
@@ -103,12 +111,27 @@
                 <version>1.6.2</version>
             </dependency>
 
-<!--            Graylog日志框架-->
+            <!--            Graylog日志框架-->
             <dependency>
                 <groupId>de.siegmar</groupId>
                 <artifactId>logback-gelf</artifactId>
                 <version>3.0.0</version>
             </dependency>
+
+            <!--xxl-job分布式定时任务-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>2.3.0</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>2.1.1</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>

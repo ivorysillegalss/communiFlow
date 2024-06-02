@@ -3,12 +3,9 @@ package org.chenzc.communi.template;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import org.chenzc.communi.entity.TaskContextData;
 import org.chenzc.communi.executor.TaskNodeModel;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 

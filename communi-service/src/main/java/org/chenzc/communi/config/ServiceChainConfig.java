@@ -1,5 +1,6 @@
 package org.chenzc.communi.config;
 
+import jakarta.annotation.Resource;
 import org.chenzc.communi.enums.BusinessEnums;
 import org.chenzc.communi.task.AfterCheckTask;
 import org.chenzc.communi.task.AssembleInfoTask;
@@ -10,7 +11,6 @@ import org.chenzc.communi.template.TaskTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
 import java.util.*;
 
 /**

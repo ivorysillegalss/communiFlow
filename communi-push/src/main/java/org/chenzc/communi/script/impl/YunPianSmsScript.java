@@ -19,17 +19,19 @@ import org.chenzc.communi.entity.sms.YunPianSendResult;
 import org.chenzc.communi.entity.sms.YunPianSmsAccount;
 import org.chenzc.communi.enums.SmsStatus;
 import org.chenzc.communi.script.SmsScript;
+import org.chenzc.communi.utils.AccountUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.chenzc.communi.utils.AccountUtils.getAccountById;
-import static org.chenzc.communi.utils.AccountUtils.getSmsAccountByScriptName;
-
 @Handler("YunPianSmsScript")
 public class YunPianSmsScript implements SmsScript {
+
+    @Resource
+    private AccountUtils accountUtils;
 
     private static final Logger log = LoggerFactory.getLogger(YunPianSmsScript.class);
 
@@ -44,8 +46,8 @@ public class YunPianSmsScript implements SmsScript {
         try {
 //            组装好请求参数
             YunPianSmsAccount account = Objects.nonNull(smsParam.getSendAccountId()) ?
-                    getAccountById(smsParam.getSendAccountId(), YunPianSmsAccount.class)
-                    : getSmsAccountByScriptName(smsParam.getScriptName(), YunPianSmsAccount.class);
+                    accountUtils.getAccountById(smsParam.getSendAccountId(), YunPianSmsAccount.class)
+                    : accountUtils.getSmsAccountByScriptName(smsParam.getScriptName(), YunPianSmsAccount.class);
             Map<String, Object> requestParams = assembleSmsRecordEntity(smsParam, account);
 
 //            发起请求

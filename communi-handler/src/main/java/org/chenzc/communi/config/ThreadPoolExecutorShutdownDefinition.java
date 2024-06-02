@@ -1,5 +1,6 @@
 package org.chenzc.communi.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2024/05/27
  */
 @Component
+@Slf4j
 public class ThreadPoolExecutorShutdownDefinition implements ApplicationListener<ContextClosedEvent> {
 
     private final List<ExecutorService> POOLS = Collections.synchronizedList(new ArrayList<>(12));
@@ -45,7 +47,8 @@ public class ThreadPoolExecutorShutdownDefinition implements ApplicationListener
             try {
 //                如果超过了限定的时间还有任务没完成 则写入警告日志
                 if (!pool.awaitTermination(AWAIT_TERMINATION, TIME_UNIT)) {
-//                    处理消息 补充日志等 TBD TODO
+                    log.warn("Thread Shutdown ,missions unfinished, exceed await termination.");
+//                    处理消息逻辑 TBD
                 }
 //                遇到错误同理
             } catch (InterruptedException ex) {

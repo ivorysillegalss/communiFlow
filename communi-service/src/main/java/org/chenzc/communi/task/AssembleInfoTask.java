@@ -1,10 +1,12 @@
 package org.chenzc.communi.task;
 
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.chenzc.communi.dao.MessageTemplateDao;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.entity.messageTemplate.MessageParam;
-import org.chenzc.communi.message.MessageTemplate;
+import org.chenzc.communi.entity.MessageTemplate;
 import org.chenzc.communi.executor.TaskNodeModel;
 import org.chenzc.communi.utils.TaskInfoUtils;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,8 @@ import java.util.List;
 @Service
 public class AssembleInfoTask implements TaskNodeModel<SendContextData> {
 
+    @Resource
+    private MessageTemplateDao messageTemplateDao;
 
     /**
      * 组装对应的taskinfo信息
@@ -29,9 +33,9 @@ public class AssembleInfoTask implements TaskNodeModel<SendContextData> {
     @Override
     public void execute(TaskContext<SendContextData> taskContext) {
         List<MessageParam> messageParams = taskContext.getBusinessContextData().getMessageParam();
+        MessageTemplate messageTemplate = messageTemplateDao.selectById(taskContext.getBusinessContextData().getMessageTemplateId());
 
-//        这里凭空造一个MessageTemplate模板的对象出来 等之后补充了MessageTemplate相关的crud在做补充 TODO
-        List<TaskInfo> taskInfoList = assembleTask(MessageTemplate.builder().build(), messageParams);
+        List<TaskInfo> taskInfoList = assembleTask(messageTemplate, messageParams);
         taskContext.getBusinessContextData().setTaskInfos(taskInfoList);
     }
 

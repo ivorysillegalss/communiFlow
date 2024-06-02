@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextData;
 import org.chenzc.communi.executor.TaskNodeModel;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,7 @@ import java.util.Map;
 
 @Builder
 @Setter
+@Component
 public class TaskController {
     private Map<String, TaskTemplate> taskTemplates;
 

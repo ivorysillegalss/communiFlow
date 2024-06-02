@@ -1,5 +1,6 @@
 package org.chenzc.communi.pending;
 
+import jakarta.annotation.Resource;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -13,7 +14,6 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 
 /**
  * 多线程执行任务
@@ -32,8 +32,8 @@ public class Task implements Runnable {
     private TaskInfo taskInfo;
 
     @Resource
-    @Qualifier("")
-//    TODO
+    @Qualifier("HandleTaskController")
+//TODO    为什么这个地方命名没有跟 communi-push 模块产生连接 但是可以注入bean？？？？？？？
     private TaskController taskController;
 
     //    执行责任链的任务

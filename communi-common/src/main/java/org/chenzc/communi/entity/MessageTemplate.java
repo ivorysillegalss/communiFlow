@@ -1,6 +1,7 @@
-package org.chenzc.communi.message;
+package org.chenzc.communi.entity;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,9 +23,9 @@ import java.io.Serializable;
  */
 //发送消息时对应的模板映射类
 
+@TableName("message_template")
 public class MessageTemplate implements Serializable {
 
-//    主键 需补充orm框架相关 TODO
     private Long id;
 
     /**
@@ -107,7 +108,7 @@ public class MessageTemplate implements Serializable {
     /**
      * 修改者
      */
-    private String updator;
+    private String updater;
 
     /**
      * 审核者

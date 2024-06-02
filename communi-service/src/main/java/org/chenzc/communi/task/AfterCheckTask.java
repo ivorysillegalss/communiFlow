@@ -2,6 +2,7 @@ package org.chenzc.communi.task;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ReUtil;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextResponse;
@@ -11,7 +12,6 @@ import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.executor.TaskNodeModel;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.stream.Collectors;
 

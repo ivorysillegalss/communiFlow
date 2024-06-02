@@ -2,6 +2,7 @@ package org.chenzc.communi.task;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextResponse;
@@ -12,7 +13,7 @@ import org.chenzc.communi.mq.SendMqService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+
 import java.util.List;
 
 

@@ -4,6 +4,7 @@ package org.chenzc.communi.mq.impl;
 import org.chenzc.communi.mq.SendMqService;
 import org.springframework.stereotype.Service;
 import org.springframework.kafka.core.KafkaTemplate;
+
 import javax.annotation.Resource;
 
 /**
