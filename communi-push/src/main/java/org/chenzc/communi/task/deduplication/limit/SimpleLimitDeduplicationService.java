@@ -10,11 +10,11 @@ import org.chenzc.communi.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.*;
-
+import jakarta.annotation.Resource;
 
 //TODO 判断消息来源渠道
+
 /**
  * 普通计数去重 限制单用户每天能收到信息的条数
  * 由 pipelin & mget 实现

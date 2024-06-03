@@ -1,6 +1,8 @@
 package org.chenzc.communi.task.deduplication.limit;
 
 import cn.hutool.core.util.IdUtil;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import org.chenzc.communi.constant.TaskConstant;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.task.deduplication.entity.DeduplicationConfigEntity;
@@ -11,8 +13,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.util.*;
 
 

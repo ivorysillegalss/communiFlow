@@ -1,11 +1,11 @@
 package org.chenzc.communi.task.deduplication.service;
 
+import jakarta.annotation.Resource;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.task.deduplication.builder.DeduplicationBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 
 /**
  * 根据消息频次去重 实现类
