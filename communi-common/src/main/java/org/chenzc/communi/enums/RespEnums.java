@@ -44,7 +44,11 @@ public enum RespEnums implements PowerfulEnums{
     /**
      * 详见子类build方法
      */
-    DEDUPLICATION_BUILD_ERR("5","去重对象构建失败");
+    DEDUPLICATION_BUILD_ERR("5","去重对象构建失败"),
+
+    CRON_TASK_SERVICE_ERROR("6","启动定时任务服务失败"),
+
+    CRON_TASK_SAVE_ERROR("7","定时任务更新 or 保存失败");
 
     /**
      * 响应编码

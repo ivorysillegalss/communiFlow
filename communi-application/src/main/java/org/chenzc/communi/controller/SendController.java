@@ -20,7 +20,7 @@ public class SendController {
      * @return {@link SendResponse }
      */
     @PostMapping("/send")
-    public  SendResponse sendMessage(@RequestBody SendRequest sendRequest){
+    public SendResponse sendMessage(@RequestBody SendRequest sendRequest){
         return sendService.sendMessage(sendRequest);
     }
 }

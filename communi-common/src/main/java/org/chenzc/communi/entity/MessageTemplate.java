@@ -46,7 +46,7 @@ public class MessageTemplate implements Serializable {
     /**
      * 消息状态
      */
-    private Integer msgStatus;
+    private String msgStatus;
 
     /**
      * 定时任务Id(由xxl-job返回)
