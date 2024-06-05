@@ -26,5 +26,4 @@ public interface SendService {
      * @return {@link SendResponse }
      */
     SendResponse batchSendMessage(BatchSendRequest sendRequest);
-//    TODO
 }
