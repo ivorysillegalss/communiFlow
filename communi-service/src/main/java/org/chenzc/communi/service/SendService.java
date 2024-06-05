@@ -1,6 +1,7 @@
 package org.chenzc.communi.service;
 
 
+import org.chenzc.communi.entity.send.BatchSendRequest;
 import org.chenzc.communi.entity.send.SendRequest;
 import org.chenzc.communi.entity.send.SendResponse;
 
@@ -24,6 +25,6 @@ public interface SendService {
      * @param sendRequest 发送请求参数
      * @return {@link SendResponse }
      */
-    SendResponse batchSendMessage(SendRequest sendRequest);
+    SendResponse batchSendMessage(BatchSendRequest sendRequest);
 //    TODO
 }

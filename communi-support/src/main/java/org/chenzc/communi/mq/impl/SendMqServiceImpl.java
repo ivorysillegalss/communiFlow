@@ -1,11 +1,10 @@
 package org.chenzc.communi.mq.impl;
 
 
+import jakarta.annotation.Resource;
 import org.chenzc.communi.mq.SendMqService;
 import org.springframework.stereotype.Service;
 import org.springframework.kafka.core.KafkaTemplate;
-
-import javax.annotation.Resource;
 
 /**
  * 具体mq发送消息的实现类 默认使用kafka

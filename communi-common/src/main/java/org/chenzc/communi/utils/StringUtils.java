@@ -1,5 +1,11 @@
 package org.chenzc.communi.utils;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 /**
  * 封装常用字符串拼接操作
  *
@@ -20,5 +26,16 @@ public class StringUtils {
         for (Object arg : args)
             sb.append(String.valueOf(arg));
         return sb.toString();
+    }
+
+    /**
+     * 分割
+     * @param a 待分解
+     * @param b 分解介质
+     * @return {@link String }
+     */
+    public static Set<String> spilt(String a, String b){
+        String[] split = a.split(b);
+       return Arrays.stream(split).collect(Collectors.toSet());
     }
 }

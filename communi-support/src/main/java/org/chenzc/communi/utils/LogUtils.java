@@ -4,6 +4,7 @@ import cn.monitor4all.logRecord.bean.LogDTO;
 import cn.monitor4all.logRecord.service.CustomLogListener;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Throwables;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.entity.LogEntity;
 import org.chenzc.communi.entity.TrackEventEntity;
@@ -11,7 +12,7 @@ import org.chenzc.communi.mq.SendMqService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+
 
 /**
  * 日志工具类

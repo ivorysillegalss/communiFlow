@@ -1,15 +1,19 @@
 package org.chenzc.communi.service;
 
 import org.chenzc.communi.entity.BasicResult;
-import org.chenzc.communi.entity.send.SendResponse;
 
-public interface MessageTemplateService {
+/**
+ * 面向外层api的定时任务相关业务类
+ * @author chenz
+ * @date 2024/06/05
+ */
+public interface CronTaskApiService {
 
     /**
      * 启动模板的定时任务
      *
      * @param id
-     * @return {@link SendResponse }
+     * @return {@link BasicResult }
      */
     BasicResult startCronTask(Long id);
 
@@ -18,7 +22,7 @@ public interface MessageTemplateService {
      * 暂停模板的定时任务
      *
      * @param id
-     * @return {@link SendResponse }
+     * @return {@link BasicResult }
      */
     BasicResult stopCronTask(Long id);
 }

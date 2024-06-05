@@ -3,6 +3,7 @@ package org.chenzc.communi.service.impl;
 import cn.monitor4all.logRecord.annotation.OperationLog;
 import org.chenzc.communi.entity.TaskContext;
 import org.chenzc.communi.entity.TaskContextData;
+import org.chenzc.communi.entity.send.BatchSendRequest;
 import org.chenzc.communi.entity.send.SendRequest;
 import org.chenzc.communi.entity.send.SendResponse;
 import org.chenzc.communi.enums.BusinessEnums;
@@ -49,7 +50,8 @@ public class SendServiceImpl implements SendService {
     }
 
     @Override
-    public SendResponse batchSendMessage(SendRequest sendRequest) {
+    public SendResponse batchSendMessage(BatchSendRequest sendRequest) {
+//        TODO
         return null;
     }
 }

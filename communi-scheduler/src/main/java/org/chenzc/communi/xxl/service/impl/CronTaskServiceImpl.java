@@ -44,7 +44,7 @@ public class CronTaskServiceImpl implements CronTaskService {
     private String xxlAddresses;
 
     @Resource
-    private StringRedisTemplate redisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     @Resource
     private RestTemplate restTemplate;
@@ -76,7 +76,7 @@ public class CronTaskServiceImpl implements CronTaskService {
             }
 
         } catch (Exception e) {
-            log.error("CronTaskService#saveTask fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
+            log.error("TaskHandler#saveTask fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
                     , JSON.toJSONString(xxlJobInfo), JSON.toJSONString(returnT));
         }
         invalidateCookie();
@@ -99,7 +99,7 @@ public class CronTaskServiceImpl implements CronTaskService {
 
             returnT = JSON.parseObject(responseEntity.getBody(), ReturnT.class);
         } catch (Exception e) {
-            log.error("CronTaskService#startCronTask fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
+            log.error("TaskHandler#startCronTask fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
                     , JSON.toJSONString(params), JSON.toJSONString(returnT));
         }
         invalidateCookie();
@@ -126,7 +126,7 @@ public class CronTaskServiceImpl implements CronTaskService {
                 return BasicResult.success(groupId);
 
         } catch (Exception e) {
-            log.error("CronTaskService#getGroupId fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
+            log.error("TaskHandler#getGroupId fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
                     , JSON.toJSONString(params), JSON.toJSONString(returnT));
         }
         invalidateCookie();
@@ -151,7 +151,7 @@ public class CronTaskServiceImpl implements CronTaskService {
             }
 
         } catch (Exception e) {
-            log.error("CronTaskService#createGroup fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
+            log.error("TaskHandler#createGroup fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
                     , JSON.toJSONString(params), JSON.toJSONString(returnT));
         }
 
@@ -177,7 +177,7 @@ public class CronTaskServiceImpl implements CronTaskService {
             }
 
         } catch (Exception e) {
-            log.error("CronTaskService#stopCronTask fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
+            log.error("TaskHandler#stopCronTask fail,e:{},param:{},response:{}", Throwables.getStackTraceAsString(e)
                     , JSON.toJSONString(params), JSON.toJSONString(returnT));
         }
         invalidateCookie();
@@ -206,7 +206,7 @@ public class CronTaskServiceImpl implements CronTaskService {
      * 清除xxl cookie 缓存的方法
      */
     private void invalidateCookie() {
-        redisTemplate.delete(StringUtils.join(XxlJobConstant.COOKIE_PREFIX, xxlUserName));
+        stringRedisTemplate.delete(StringUtils.join(XxlJobConstant.COOKIE_PREFIX, xxlUserName));
     }
 
 
@@ -216,7 +216,7 @@ public class CronTaskServiceImpl implements CronTaskService {
      * @return {@link String }
      */
     private String getCookie() {
-        String cachedCookie = redisTemplate.opsForValue().get(StringUtils.join(XxlJobConstant.COOKIE_PREFIX, xxlUserName));
+        String cachedCookie = stringRedisTemplate.opsForValue().get(StringUtils.join(XxlJobConstant.COOKIE_PREFIX, xxlUserName));
 
 //        若有缓存直接返回缓存
         if (StrUtil.isNotBlank(cachedCookie)) {
@@ -242,7 +242,7 @@ public class CronTaskServiceImpl implements CronTaskService {
                         .map(HttpCookie::toString)
                         .collect(Collectors.joining(";"));
 
-                redisTemplate.opsForValue().set(StringUtils.join(XxlJobConstant.COOKIE_PREFIX, xxlUserName), cookiesString);
+                stringRedisTemplate.opsForValue().set(StringUtils.join(XxlJobConstant.COOKIE_PREFIX, xxlUserName), cookiesString);
                 return cookiesString;
             }
         }

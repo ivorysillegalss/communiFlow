@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.experimental.Accessors;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Data
@@ -24,5 +25,5 @@ public class MessageParam {
     /**
      * 替换消息模板中占位符的内容
      */
-    private List<String> variables;
+    private List<Map<String,String>> variables;
 }

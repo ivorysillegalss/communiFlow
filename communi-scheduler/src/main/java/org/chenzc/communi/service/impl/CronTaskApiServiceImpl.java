@@ -8,16 +8,15 @@ import org.chenzc.communi.entity.BasicResult;
 import org.chenzc.communi.entity.MessageTemplate;
 import org.chenzc.communi.enums.MessageStatus;
 import org.chenzc.communi.enums.RespEnums;
-import org.chenzc.communi.service.MessageTemplateService;
+import org.chenzc.communi.service.CronTaskApiService;
 import org.chenzc.communi.xxl.entity.XxlJobInfo;
-import org.chenzc.communi.xxl.service.CronTaskService;
 import org.chenzc.communi.xxl.utils.XxlJobsUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
 @Service
-public class MessageTemplateServiceImpl implements MessageTemplateService {
+public class CronTaskApiServiceImpl implements CronTaskApiService {
 
     @Resource
     private XxlJobsUtils xxlJobsUtils;
@@ -26,7 +25,7 @@ public class MessageTemplateServiceImpl implements MessageTemplateService {
     private MessageTemplateDao messageTemplateDao;
 
     @Resource
-    private CronTaskService cronTaskService;
+    private org.chenzc.communi.xxl.service.CronTaskService cronTaskService;
 
     @Override
     public BasicResult startCronTask(Long id) {
