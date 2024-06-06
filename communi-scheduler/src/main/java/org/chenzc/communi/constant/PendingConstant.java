@@ -26,6 +26,10 @@ public class PendingConstant {
      */
     public static final Integer BATCH_RECEIVER_SIZE = 100;
 
+    /**
+     * 夜间屏蔽次日发送的key
+     */
+    public static final String NIGHT_SHIELD_NEXT_DAY_SEND_KEY = "night_shield_send";
 
     private PendingConstant() {
     }
