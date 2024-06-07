@@ -15,6 +15,7 @@ public enum RespEnums implements PowerfulEnums{
 
     SUCCESS("1","成功"),
     FAIL("0","失败"),
+    CLIENT_BAD_VARIABLES("-1","参数解析错误"),
     CLIENT_BAD_PARAMETERS("2","含接受者的参数列表为空"),
 
     SEND_MQ_ERROR("3","发送MQ信息错误"),

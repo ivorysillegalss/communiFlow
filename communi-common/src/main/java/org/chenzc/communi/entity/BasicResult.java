@@ -1,9 +1,6 @@
 package org.chenzc.communi.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.chenzc.communi.enums.RespEnums;
 
 /**
@@ -15,6 +12,7 @@ import org.chenzc.communi.enums.RespEnums;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public final class BasicResult<T> {
 
     /**

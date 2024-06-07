@@ -45,10 +45,7 @@ public class XxlJobConfig {
 
     @Bean
     public XxlJobSpringExecutor xxlJobSpringExecutor(){
-        log.info("""
-                --------------------------------------------------\s
-                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl-joooooooooooooooooooob init\s
-                ----------------------------------------------""");
+        log.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl-joooooooooooooooooooob init");
 //        创建 XxlJobSpringExecutor执行器
             XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
             xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
