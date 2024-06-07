@@ -4,14 +4,18 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.mail.MailAccount;
 import cn.hutool.extra.mail.MailUtil;
 import com.google.common.base.Throwables;
+import com.google.common.util.concurrent.RateLimiter;
 import com.sun.mail.util.MailSSLSocketFactory;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.chenzc.communi.annonation.Handler;
+import org.chenzc.communi.constant.FlowControlConstant;
 import org.chenzc.communi.constant.HandlerConstant;
 import org.chenzc.communi.content.EmailContentModel;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.enums.ChannelType;
+import org.chenzc.communi.enums.RateLimitStrategy;
+import org.chenzc.communi.flowcontrol.FlowControlParam;
 import org.chenzc.communi.handler.BaseHandler;
 import org.chenzc.communi.utils.AccountUtils;
 import org.chenzc.communi.utils.FileUtils;
@@ -27,14 +31,18 @@ public class EmailHandler extends BaseHandler {
     @Resource
     private AccountUtils accountUtils;
 
-
     /**
      * 初始化配置渠道码
      */
     public EmailHandler() {
         channelCode = ChannelType.EMAIL.getCode();
 
-//        限流配置TBD TODO
+        double rateInitValue = FlowControlConstant.DEFAULT_PERMITS.doubleValue();
+        flowControlParam = FlowControlParam.builder()
+                .rateInitValue(rateInitValue)
+                .rateLimiter(RateLimiter.create(rateInitValue))
+                .rateLimitStrategy(RateLimitStrategy.REQUEST_RATE_LIMIT)
+                .build();
     }
 
     @Override

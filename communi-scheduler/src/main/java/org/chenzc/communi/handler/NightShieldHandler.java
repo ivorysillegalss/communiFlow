@@ -39,6 +39,10 @@ public class NightShieldHandler {
     @Resource
     private RedisUtils redisUtils;
 
+    /**
+     * 执行类
+     */
+//    TODO 可接入rabbitMQ结合死信队列TTL
     @XxlJob("nightShieldLazyJob")
     public void execute() {
         log.info("NightShieldLazyPendingHandler#execute!");

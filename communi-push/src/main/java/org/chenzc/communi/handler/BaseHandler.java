@@ -6,8 +6,12 @@ import org.chenzc.communi.entity.LogEntity;
 import org.chenzc.communi.entity.TaskInfo;
 import org.chenzc.communi.entity.TrackEventEntity;
 import org.chenzc.communi.enums.RespEnums;
+import org.chenzc.communi.flowcontrol.FlowControlFactory;
+import org.chenzc.communi.flowcontrol.FlowControlParam;
 import org.chenzc.communi.utils.LogUtils;
 import jakarta.annotation.Resource;
+
+import java.util.Objects;
 
 /**
  * 所有第三方消息推送类的父类 包含其中一些共用的方法以及初始化
@@ -17,6 +21,12 @@ import jakarta.annotation.Resource;
  */
 @Slf4j
 public abstract class BaseHandler implements Handler {
+
+
+    protected FlowControlParam flowControlParam;
+
+    @Resource
+    private FlowControlFactory flowControlFactory;
 
     @Resource
     private HandlerFactory handlerFactory;
@@ -33,10 +43,17 @@ public abstract class BaseHandler implements Handler {
      * 处理器同一对象
      *
      * @param taskInfo
-     *///    这一个类可对需要进行任务的信息 进行批处理 例如限流等 TODO
+     */
+    //    这一个类可对需要进行任务的信息 进行批处理 例如限流等
 //    但是我觉得限流可以单开一个新的责任链节点去搞 ? TODO
     @Override
     public void doHandler(TaskInfo taskInfo) {
+
+//        执行限流
+        if (Objects.nonNull(flowControlParam)){
+            flowControlFactory.doFlowControl(taskInfo,flowControlParam);
+        }
+
         TrackEventEntity trackEvent = TrackEventEntity.builder()
                 .businessId(taskInfo.getBusinessId())
                 .messageId(taskInfo.getMessageId())
