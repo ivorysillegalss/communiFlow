@@ -76,4 +76,10 @@ public class CommonConstant {
     public static final Integer CACHE_MESSAGE_EXPIRE = 3;
 
     public static final Integer BUSINESS_ID_LENGTH = 16;
+
+
+    /**
+     * 用于advice controller 统一处理类
+     */
+    public static final String BUSINESS_RETURN_CLASS = "BasicResult";
 }

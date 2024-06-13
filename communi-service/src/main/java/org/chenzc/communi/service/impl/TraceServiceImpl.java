@@ -13,10 +13,12 @@ import org.chenzc.communi.entity.trace.TraceResponse;
 import org.chenzc.communi.enums.RespEnums;
 import org.chenzc.communi.service.TraceService;
 import org.chenzc.communi.utils.RedisUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TraceServiceImpl implements TraceService {
 
     @Resource
