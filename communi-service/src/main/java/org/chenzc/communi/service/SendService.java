@@ -4,12 +4,14 @@ package org.chenzc.communi.service;
 import org.chenzc.communi.entity.send.BatchSendRequest;
 import org.chenzc.communi.entity.send.SendRequest;
 import org.chenzc.communi.entity.send.SendResponse;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 下发消息的接口
  * @author chenz
  * @date 2024/05/22
  */
+@Transactional
 public interface SendService {
 
     /**

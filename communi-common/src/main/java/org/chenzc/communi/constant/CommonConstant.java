@@ -68,5 +68,12 @@ public class CommonConstant {
     private CommonConstant() {
     }
 
+    /**
+    * 存储前缀
+     * */
+    public static final String CACHE_KEY_PREFIX = "communi";
+    public static final String CACHE_MESSAGE_ID = "cacheMessage";
+    public static final Integer CACHE_MESSAGE_EXPIRE = 3;
 
+    public static final Integer BUSINESS_ID_LENGTH = 16;
 }

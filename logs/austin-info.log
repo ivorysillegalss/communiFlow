@@ -1,123 +1,59 @@
-2024-06-07 15:51:17.930 [main] INFO  org.chenzc.communi.CommuniApplication - Starting CommuniApplication using Java 17.0.11 with PID 32236 (D:\Idea\IdeaProject\communiFlow\communi-application\target\classes started by chenz in D:\Idea\IdeaProject\communiFlow)
-2024-06-07 15:51:18.954 [main] INFO  org.chenzc.communi.CommuniApplication - No active profile set, falling back to 1 default profile: "default"
-2024-06-07 15:51:20.452 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2024-06-07 15:51:20.455 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2024-06-07 15:51:20.490 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
-2024-06-07 15:51:21.438 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 3000 (http)
-2024-06-07 15:51:21.456 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3000"]
-2024-06-07 15:51:21.458 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-07 15:51:21.459 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2024-06-07 15:51:21.551 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-07 15:51:21.552 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2250 ms
-2024-06-07 15:51:23.256 [main] INFO  org.chenzc.communi.xxl.config.XxlJobConfig - -------------------------------------------------- 
- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl-joooooooooooooooooooob init 
-----------------------------------------------
-2024-06-07 15:51:24.692 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2024-06-07 15:51:24.772 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:communiFlowJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@565030b7[class org.chenzc.communi.handler.CronTaskHandler#execute]
-2024-06-07 15:51:24.774 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:nightShieldLazyJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@24f77077[class org.chenzc.communi.handler.NightShieldHandler#execute]
-2024-06-07 15:51:24.966 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-3000"]
-2024-06-07 15:51:24.973 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 3000 (http) with context path '/'
-2024-06-07 15:51:24.999 [main] INFO  org.chenzc.communi.CommuniApplication - Started CommuniApplication in 12.654 seconds (process running for 19.436)
-2024-06-07 15:51:25.186 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9997
-2024-06-07 15:51:25.219 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry fail, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=500, msg=xxl-rpc remoting error(Connection refused: getsockopt), for url : http://127.0.0.1:5000/xxl-job-admin/api/registry, content=null]
-2024-06-07 15:51:25.313 [RMI TCP Connection(5)-192.168.138.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Starting...
-2024-06-07 15:51:25.322 [RMI TCP Connection(4)-192.168.138.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-07 15:51:25.323 [RMI TCP Connection(4)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2024-06-07 15:51:25.325 [RMI TCP Connection(4)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-06-07 15:51:49.730 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server stop.
-2024-06-07 15:51:50.740 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry-remove fail, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=500, msg=xxl-rpc remoting error(Connection refused: getsockopt), for url : http://127.0.0.1:5000/xxl-job-admin/api/registryRemove, content=null]
-2024-06-07 15:51:50.740 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job, executor registry thread destory.
-2024-06-07 15:51:50.740 [SpringApplicationShutdownHook] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server destroy success.
-2024-06-07 15:51:50.741 [xxl-job, executor TriggerCallbackThread] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor callback thread destory.
-2024-06-07 15:51:50.741 [Thread-3] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor retry callback thread destory.
-2024-06-07 15:59:09.774 [main] INFO  org.chenzc.communi.CommuniApplication - Starting CommuniApplication using Java 17.0.11 with PID 31948 (D:\Idea\IdeaProject\communiFlow\communi-application\target\classes started by chenz in D:\Idea\IdeaProject\communiFlow)
-2024-06-07 15:59:10.792 [main] INFO  org.chenzc.communi.CommuniApplication - No active profile set, falling back to 1 default profile: "default"
-2024-06-07 15:59:12.122 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2024-06-07 15:59:12.126 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2024-06-07 15:59:12.171 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
-2024-06-07 15:59:13.328 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 3000 (http)
-2024-06-07 15:59:13.340 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3000"]
-2024-06-07 15:59:13.343 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-07 15:59:13.343 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2024-06-07 15:59:13.440 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-07 15:59:13.441 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2431 ms
-2024-06-07 15:59:56.030 [main] INFO  org.chenzc.communi.xxl.config.XxlJobConfig - -------------------------------------------------- 
- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl-joooooooooooooooooooob init 
-----------------------------------------------
-2024-06-07 15:59:57.825 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2024-06-07 15:59:57.880 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:communiFlowJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@21251e43[class org.chenzc.communi.handler.CronTaskHandler#execute]
-2024-06-07 15:59:57.882 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:nightShieldLazyJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@1f7949dc[class org.chenzc.communi.handler.NightShieldHandler#execute]
-2024-06-07 15:59:57.983 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-3000"]
-2024-06-07 15:59:57.998 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 3000 (http) with context path '/'
-2024-06-07 15:59:58.014 [main] INFO  org.chenzc.communi.CommuniApplication - Started CommuniApplication in 53.544 seconds (process running for 60.488)
-2024-06-07 15:59:58.065 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9997
-2024-06-07 15:59:58.112 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry fail, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=500, msg=xxl-rpc remoting error(Connection refused: getsockopt), for url : http://127.0.0.1:5000/xxl-job-admin/api/registry, content=null]
-2024-06-07 15:59:58.206 [RMI TCP Connection(4)-192.168.138.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-07 15:59:58.206 [RMI TCP Connection(4)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2024-06-07 15:59:58.209 [RMI TCP Connection(4)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-06-07 15:59:58.210 [RMI TCP Connection(2)-192.168.138.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Starting...
-2024-06-07 16:00:29.365 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry fail, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=500, msg=xxl-rpc remoting error(Connection refused: getsockopt), for url : http://127.0.0.1:5000/xxl-job-admin/api/registry, content=null]
-2024-06-07 16:01:15.498 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server stop.
-2024-06-07 16:01:15.506 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry-remove success, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=200, msg=null, content=null]
-2024-06-07 16:01:16.527 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job, executor registry thread destory.
-2024-06-07 16:01:16.527 [SpringApplicationShutdownHook] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server destroy success.
-2024-06-07 16:01:16.528 [xxl-job, executor TriggerCallbackThread] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor callback thread destory.
-2024-06-07 16:01:16.528 [Thread-3] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor retry callback thread destory.
-2024-06-07 16:01:30.631 [main] INFO  org.chenzc.communi.CommuniApplication - Starting CommuniApplication using Java 17.0.11 with PID 27360 (D:\Idea\IdeaProject\communiFlow\communi-application\target\classes started by chenz in D:\Idea\IdeaProject\communiFlow)
-2024-06-07 16:01:31.649 [main] INFO  org.chenzc.communi.CommuniApplication - No active profile set, falling back to 1 default profile: "default"
-2024-06-07 16:01:32.511 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2024-06-07 16:01:32.513 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2024-06-07 16:01:32.541 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
-2024-06-07 16:01:33.183 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 3000 (http)
-2024-06-07 16:01:33.191 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3000"]
-2024-06-07 16:01:33.192 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-07 16:01:33.193 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2024-06-07 16:01:33.250 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-07 16:01:33.251 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1434 ms
-2024-06-07 16:01:34.019 [main] INFO  org.chenzc.communi.xxl.config.XxlJobConfig - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl-joooooooooooooooooooob init
-2024-06-07 16:01:34.756 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2024-06-07 16:01:34.814 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:communiFlowJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@589a4305[class org.chenzc.communi.handler.CronTaskHandler#execute]
-2024-06-07 16:01:34.816 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:nightShieldLazyJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@95aeee4[class org.chenzc.communi.handler.NightShieldHandler#execute]
-2024-06-07 16:01:34.910 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-3000"]
-2024-06-07 16:01:34.916 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 3000 (http) with context path '/'
-2024-06-07 16:01:34.932 [main] INFO  org.chenzc.communi.CommuniApplication - Started CommuniApplication in 9.552 seconds (process running for 15.345)
-2024-06-07 16:01:35.030 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9997
-2024-06-07 16:01:35.134 [RMI TCP Connection(2)-192.168.138.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Starting...
-2024-06-07 16:01:35.134 [RMI TCP Connection(1)-192.168.138.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-07 16:01:35.135 [RMI TCP Connection(1)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2024-06-07 16:01:35.136 [RMI TCP Connection(1)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-06-07 16:03:02.092 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server stop.
-2024-06-07 16:03:02.100 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry-remove success, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=200, msg=null, content=null]
-2024-06-07 16:03:03.106 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job, executor registry thread destory.
-2024-06-07 16:03:03.107 [SpringApplicationShutdownHook] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server destroy success.
-2024-06-07 16:03:03.107 [xxl-job, executor TriggerCallbackThread] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor callback thread destory.
-2024-06-07 16:03:03.108 [Thread-3] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor retry callback thread destory.
-2024-06-07 16:03:16.111 [main] INFO  org.chenzc.communi.CommuniApplication - Starting CommuniApplication using Java 17.0.11 with PID 29396 (D:\Idea\IdeaProject\communiFlow\communi-application\target\classes started by chenz in D:\Idea\IdeaProject\communiFlow)
-2024-06-07 16:03:17.124 [main] INFO  org.chenzc.communi.CommuniApplication - No active profile set, falling back to 1 default profile: "default"
-2024-06-07 16:03:18.012 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2024-06-07 16:03:18.015 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2024-06-07 16:03:18.054 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
-2024-06-07 16:03:19.180 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 3000 (http)
-2024-06-07 16:03:19.194 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3000"]
-2024-06-07 16:03:19.196 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-07 16:03:19.197 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2024-06-07 16:03:19.294 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-07 16:03:19.295 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2000 ms
-2024-06-07 16:03:20.404 [main] INFO  org.chenzc.communi.xxl.config.XxlJobConfig - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl-joooooooooooooooooooob init
-2024-06-07 16:03:21.493 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2024-06-07 16:03:21.588 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:communiFlowJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@1828ab51[class org.chenzc.communi.handler.CronTaskHandler#execute]
-2024-06-07 16:03:21.590 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:nightShieldLazyJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@28c75c93[class org.chenzc.communi.handler.NightShieldHandler#execute]
-2024-06-07 16:03:21.749 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-3000"]
-2024-06-07 16:03:21.760 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 3000 (http) with context path '/'
-2024-06-07 16:03:21.790 [main] INFO  org.chenzc.communi.CommuniApplication - Started CommuniApplication in 11.152 seconds (process running for 17.234)
-2024-06-07 16:03:21.871 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9997
-2024-06-07 16:03:22.242 [RMI TCP Connection(5)-192.168.138.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-07 16:03:22.242 [RMI TCP Connection(5)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2024-06-07 16:03:22.244 [RMI TCP Connection(4)-192.168.138.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Starting...
-2024-06-07 16:03:22.245 [RMI TCP Connection(5)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-06-07 16:04:04.593 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server stop.
-2024-06-07 16:04:04.597 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry-remove success, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=200, msg=null, content=null]
-2024-06-07 16:04:05.607 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job, executor registry thread destory.
-2024-06-07 16:04:05.608 [SpringApplicationShutdownHook] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server destroy success.
-2024-06-07 16:04:05.609 [xxl-job, executor TriggerCallbackThread] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor callback thread destory.
-2024-06-07 16:04:05.610 [Thread-3] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor retry callback thread destory.
+2024-06-12 22:50:20.029 [main] INFO  org.chenzc.communi.CommuniApplication - Starting CommuniApplication using Java 17.0.11 with PID 16844 (D:\Idea\IdeaProject\communiFlow\communi-application\target\classes started by chenz in D:\Idea\IdeaProject\communiFlow)
+2024-06-12 22:50:21.237 [main] INFO  org.chenzc.communi.CommuniApplication - No active profile set, falling back to 1 default profile: "default"
+2024-06-12 22:50:26.779 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 22:50:26.786 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 22:50:26.869 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 0 Redis repository interfaces.
+2024-06-12 22:50:28.995 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 3000 (http)
+2024-06-12 22:50:29.016 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3000"]
+2024-06-12 22:50:29.018 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-12 22:50:29.019 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 22:50:29.152 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-12 22:50:29.153 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6748 ms
+2024-06-12 22:50:31.497 [main] INFO  org.chenzc.communi.xxl.config.XxlJobConfig - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl-joooooooooooooooooooob init
+2024-06-12 22:50:33.873 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2024-06-12 22:50:33.958 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:communiFlowJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@95aeee4[class org.chenzc.communi.handler.CronTaskHandler#execute]
+2024-06-12 22:50:33.960 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:nightShieldLazyJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@63218586[class org.chenzc.communi.handler.NightShieldHandler#execute]
+2024-06-12 22:50:34.105 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-3000"]
+2024-06-12 22:50:34.118 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 3000 (http) with context path '/'
+2024-06-12 22:50:34.146 [main] INFO  org.chenzc.communi.CommuniApplication - Started CommuniApplication in 21.33 seconds (process running for 27.707)
+2024-06-12 22:50:34.255 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9997
+2024-06-12 22:50:34.275 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry fail, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=500, msg=xxl-rpc remoting error(Connection refused: getsockopt), for url : http://127.0.0.1:5000/xxl-job-admin/api/registry, content=null]
+2024-06-12 22:50:34.658 [RMI TCP Connection(25)-192.168.138.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-12 22:50:34.658 [RMI TCP Connection(24)-192.168.138.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Starting...
+2024-06-12 22:50:34.659 [RMI TCP Connection(25)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-12 22:50:34.661 [RMI TCP Connection(25)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-06-12 22:51:03.812 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server stop.
+2024-06-12 22:51:03.935 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry-remove success, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=200, msg=null, content=null]
+2024-06-12 22:51:04.840 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job, executor registry thread destory.
+2024-06-12 22:51:04.841 [SpringApplicationShutdownHook] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server destroy success.
+2024-06-12 22:51:04.842 [xxl-job, executor TriggerCallbackThread] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor callback thread destory.
+2024-06-12 22:51:04.842 [Thread-3] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor retry callback thread destory.
+2024-06-12 22:51:19.809 [main] INFO  org.chenzc.communi.CommuniApplication - Starting CommuniApplication using Java 17.0.11 with PID 40576 (D:\Idea\IdeaProject\communiFlow\communi-application\target\classes started by chenz in D:\Idea\IdeaProject\communiFlow)
+2024-06-12 22:51:20.833 [main] INFO  org.chenzc.communi.CommuniApplication - No active profile set, falling back to 1 default profile: "default"
+2024-06-12 22:51:21.833 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-12 22:51:21.835 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-12 22:51:21.864 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2024-06-12 22:51:22.604 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 3000 (http)
+2024-06-12 22:51:22.613 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-3000"]
+2024-06-12 22:51:22.615 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-12 22:51:22.615 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-12 22:51:22.685 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-12 22:51:22.685 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1652 ms
+2024-06-12 22:51:23.585 [main] INFO  org.chenzc.communi.xxl.config.XxlJobConfig - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxl-joooooooooooooooooooob init
+2024-06-12 22:51:24.599 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2024-06-12 22:51:24.670 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:communiFlowJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@4a249610[class org.chenzc.communi.handler.CronTaskHandler#execute]
+2024-06-12 22:51:24.672 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:nightShieldLazyJob, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@22cf1808[class org.chenzc.communi.handler.NightShieldHandler#execute]
+2024-06-12 22:51:24.782 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-3000"]
+2024-06-12 22:51:24.790 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 3000 (http) with context path '/'
+2024-06-12 22:51:24.815 [main] INFO  org.chenzc.communi.CommuniApplication - Started CommuniApplication in 10.246 seconds (process running for 16.402)
+2024-06-12 22:51:24.883 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9997
+2024-06-12 22:51:25.126 [RMI TCP Connection(2)-192.168.138.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Starting...
+2024-06-12 22:51:25.130 [RMI TCP Connection(1)-192.168.138.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-12 22:51:25.131 [RMI TCP Connection(1)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-12 22:51:25.135 [RMI TCP Connection(1)-192.168.138.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2024-06-12 22:54:14.281 [Thread-4] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server stop.
+2024-06-12 22:54:14.285 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry-remove success, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='communiFlow', registryValue='http://127.0.0.1:9997/'}, registryResult:ReturnT [code=200, msg=null, content=null]
+2024-06-12 22:54:15.303 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job, executor registry thread destory.
+2024-06-12 22:54:15.304 [SpringApplicationShutdownHook] INFO  com.xxl.job.core.server.EmbedServer - >>>>>>>>>>> xxl-job remoting server destroy success.
+2024-06-12 22:54:15.304 [xxl-job, executor TriggerCallbackThread] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor callback thread destory.
+2024-06-12 22:54:15.305 [Thread-3] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor retry callback thread destory.

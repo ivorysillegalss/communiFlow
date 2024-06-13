@@ -1,15 +1,19 @@
 package org.chenzc.communi.sink;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.text.CharSequenceUtil;
+import cn.hutool.core.text.StrPool;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Throwables;
 import io.lettuce.core.RedisFuture;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.streaming.api.functions.sink.SinkFunction;
+import org.chenzc.communi.constant.CommonConstant;
 import org.chenzc.communi.entity.SimpleTrackEventEntity;
 import org.chenzc.communi.entity.TrackEventEntity;
 import org.chenzc.communi.utils.LettuceRedisUtils;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,6 +49,22 @@ public class RedisSink implements SinkFunction<TrackEventEntity> {
                 List<RedisFuture<?>> redisFutures = new ArrayList<>();
 
                 /**
+                 * 0.构建messageId维度的链路信息 数据结构list:{key,list}
+                 * key:Austin:MessageId:{messageId},listValue:[{timestamp,state,businessId},{timestamp,state,businessId}]
+                 */
+
+//                构建存储key
+                String redisMessageKey = CharSequenceUtil.join(StrPool.COLON, CommonConstant.CACHE_KEY_PREFIX, CommonConstant.CACHE_MESSAGE_ID, value.getMessageId());
+                SimpleTrackEventEntity trackEvent = SimpleTrackEventEntity.builder()
+                        .timestamp(value.getTimestamp())
+                        .state(value.getState())
+                        .businessId(value.getBusinessId())
+                        .build();
+
+                redisFutures.add(redisAsyncCommands.lpush(redisMessageKey.getBytes(), JSON.toJSONString(redisMessageKey).getBytes()));
+                redisFutures.add(redisAsyncCommands.expire(redisMessageKey.getBytes(), Duration.ofDays(CommonConstant.CACHE_MESSAGE_EXPIRE).toMillis() / 1000));
+
+                /**
                  * 1.构建userId维度的链路信息 数据结构list:{key,list}
                  * key:userId,listValue:[{timestamp,state,businessId},{timestamp,state,businessId}]
                  */
@@ -73,7 +93,7 @@ public class RedisSink implements SinkFunction<TrackEventEntity> {
 
                 return redisFutures;
             });
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("AustinSink#invoke error: {}", Throwables.getStackTraceAsString(e));
         }
     }
