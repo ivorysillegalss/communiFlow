@@ -65,12 +65,13 @@ public class CommonConstant {
      */
     public static final String ENV_DEV = "dev";
     public static final String ENV_TEST = "test";
+
     private CommonConstant() {
     }
 
     /**
-    * 存储前缀
-     * */
+     * 存储前缀
+     */
     public static final String CACHE_KEY_PREFIX = "communi";
     public static final String CACHE_MESSAGE_ID = "cacheMessage";
     public static final Integer CACHE_MESSAGE_EXPIRE = 3;
@@ -82,4 +83,7 @@ public class CommonConstant {
      * 用于advice controller 统一处理类
      */
     public static final String BUSINESS_RETURN_CLASS = "BasicResult";
+
+    public static final String KAFKA = "kafka";
+    public static final String RABBIT_MQ = "rabbitmq";
 }

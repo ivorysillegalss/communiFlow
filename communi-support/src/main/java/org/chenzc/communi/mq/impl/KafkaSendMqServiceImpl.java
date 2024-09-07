@@ -12,7 +12,7 @@ import org.springframework.kafka.core.KafkaTemplate;
  * @date 2024/05/24
  */
 @Service
-public class SendMqServiceImpl implements SendMqService {
+public class KafkaSendMqServiceImpl implements SendMqService {
 
     @Resource
     private KafkaTemplate kafkaTemplate;
